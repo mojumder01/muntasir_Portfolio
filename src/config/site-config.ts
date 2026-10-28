@@ -17,8 +17,8 @@ export const SITE = {
 
 /* ---------- 2. Contact ---------- */
 export const CONTACT = {
-  email: siteJson.contact.email.trim(),
-  whatsappNumber: String(siteJson.contact.whatsappNumber).trim(),
+  email: (siteJson.contact.email ?? '').trim(),
+  whatsappNumber: String(siteJson.contact.whatsappNumber ?? '').trim(),
 };
 
 /* ---------- 3. Social / profile links ---------- */

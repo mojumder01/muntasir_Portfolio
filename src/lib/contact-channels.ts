@@ -34,7 +34,7 @@ export function getFormspreeId(): string {
 
 /** Google Sheet (Apps Script) web app URL from site.json, or '' when not set/invalid. */
 export function getGoogleSheetUrl(): string {
-  const webAppUrl = INTEGRATIONS.googleSheetWebAppUrl.trim();
+  const webAppUrl = (INTEGRATIONS.googleSheetWebAppUrl ?? '').trim();
   return GOOGLE_SCRIPT_URL_PATTERN.test(webAppUrl) ? webAppUrl : '';
 }
 
@@ -48,8 +48,8 @@ export interface ChatLink {
 export function getChatLinks(): ChatLink[] {
   if (!CHAT.isEnabled) return [];
   const chatLinks: ChatLink[] = [];
-  const messengerUsername = CHAT.messengerUsername.trim().replace(/^@/, '');
-  const telegramUsername = CHAT.telegramUsername.trim().replace(/^@/, '');
+  const messengerUsername = (CHAT.messengerUsername ?? '').trim().replace(/^@/, '');
+  const telegramUsername = (CHAT.telegramUsername ?? '').trim().replace(/^@/, '');
 
   if (MESSENGER_USERNAME_PATTERN.test(messengerUsername)) {
     chatLinks.push({ id: 'messenger', label: 'Messenger', url: `https://m.me/${messengerUsername}` });
