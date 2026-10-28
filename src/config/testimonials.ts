@@ -10,7 +10,8 @@ import type { Testimonial } from '../types/content';
 
 type RawTestimonial = Omit<Testimonial, 'sourceUrl'> & { sourceUrl?: string };
 
-export const TESTIMONIALS: Testimonial[] = (testimonialsJson as RawTestimonial[]).map((testimonial) => ({
+// The JSON's own shape changes with admin edits, so it isn't used as the type (checked by scripts/validate-content.mjs)
+export const TESTIMONIALS: Testimonial[] = (testimonialsJson as unknown as RawTestimonial[]).map((testimonial) => ({
   ...testimonial,
   sourceUrl: testimonial.sourceUrl ?? '',
 }));

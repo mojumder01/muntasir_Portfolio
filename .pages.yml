@@ -79,7 +79,7 @@ content:
         label: Integrations
         type: object
         fields:
-          - { name: googleSheetWebAppUrl, label: Google Sheet web app URL, type: string, description: Apps Script web app URL ending with /exec — see README section 3b }
+          - { name: googleSheetWebAppUrl, label: Google Sheet web app URL, type: string, description: 'NOT the sheet link (docs.google.com/spreadsheets/…). In the sheet: Extensions → Apps Script → Deploy → Web app, then paste the URL that starts with https://script.google.com/macros/s/ and ends with /exec — README section 3b' }
 
   # ---------- Services (src/content/services.json) ----------
   - name: services
