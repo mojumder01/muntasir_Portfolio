@@ -1,0 +1,16 @@
+# Installed packages and build output — recreated by `npm ci` / `npm run build`
+node_modules/
+dist/
+
+# Local settings (copy .env.example to .env) — never commit these
+.env
+.env.*
+!.env.example
+*.local
+
+# Editor / OS files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log

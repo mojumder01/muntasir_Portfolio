@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mojumder01.github.io/sitemap.xml
+Sitemap: https://mojumder01.github.io/muntasir_Portfolio/sitemap.xml

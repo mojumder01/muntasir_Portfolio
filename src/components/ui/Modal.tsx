@@ -6,7 +6,7 @@
 // =============================================================
 
 import { X } from 'lucide-react';
-import { useEffect, useRef, type ReactNode } from 'react';
+import { useEffect, useRef, type MouseEvent, type ReactNode } from 'react';
 
 interface ModalProps {
   isOpen: boolean;
@@ -18,6 +18,15 @@ interface ModalProps {
 
 export function Modal({ isOpen, onClose, titleId, children, maxWidthClass = 'w-[min(760px,calc(100%-24px))]' }: ModalProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const pressStartedOnBackdrop = useRef(false);
+
+  /** True when the pointer is on the dark backdrop, outside the panel. */
+  const isOnBackdrop = (event: MouseEvent<HTMLDialogElement>): boolean => {
+    const dialogElement = dialogRef.current;
+    if (!dialogElement || event.target !== dialogElement) return false;
+    const panel = dialogElement.getBoundingClientRect();
+    return event.clientX < panel.left || event.clientX > panel.right || event.clientY < panel.top || event.clientY > panel.bottom;
+  };
 
   // Open/close the native dialog whenever isOpen changes
   useEffect(() => {
@@ -31,8 +40,12 @@ export function Modal({ isOpen, onClose, titleId, children, maxWidthClass = 'w-[
     <dialog
       ref={dialogRef}
       onClose={onClose}
-      // Clicking the dark backdrop (outside the panel) closes the dialog
-      onClick={(event) => event.target === dialogRef.current && onClose()}
+      // Clicking the dark backdrop (outside the panel) closes the dialog. The press must also start
+      // there: selecting text in a field and releasing over the backdrop must not lose the form.
+      onPointerDown={(event) => {
+        pressStartedOnBackdrop.current = isOnBackdrop(event);
+      }}
+      onClick={(event) => pressStartedOnBackdrop.current && isOnBackdrop(event) && onClose()}
       aria-labelledby={titleId}
       className={`m-auto max-h-[90dvh] overflow-y-auto rounded-2xl border border-line-strong bg-surface p-0 text-text shadow-2xl ${maxWidthClass}`}
     >

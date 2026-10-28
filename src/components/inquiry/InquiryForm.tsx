@@ -77,6 +77,13 @@ export function InquiryForm() {
     void delivery.deliver(buildInquiryMessage(inquiry), inquiry.contactMethod);
   };
 
+  /** Fresh form for a new inquiry (so the sent one isn't resubmitted by accident); keeps the contact details. */
+  const startAnotherInquiry = () => {
+    setInquiry((current) => ({ ...createEmptyInquiry(current.contactMethod), name: current.name, email: current.email, company: current.company }));
+    setErrors({});
+    delivery.resetStatus();
+  };
+
   /* ---------- Success screen (only after a confirmed send) ---------- */
   if (delivery.status.kind === 'sent') {
     return (
@@ -86,7 +93,7 @@ export function InquiryForm() {
         <p className="mt-2 text-muted">
           I’ll reply to {inquiry.email} {SITE.responseTime}.
         </p>
-        <Button variant="secondary" className="mt-6" onClick={delivery.resetStatus}>
+        <Button variant="secondary" className="mt-6" onClick={startAnotherInquiry}>
           Send another inquiry
         </Button>
       </div>

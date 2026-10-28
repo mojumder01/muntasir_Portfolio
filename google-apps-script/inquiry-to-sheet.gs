@@ -72,7 +72,8 @@ function doPost(event) {
 
     if (isRateLimited()) return jsonResponse({ ok: false, error: 'too-many-requests' });
 
-    var sheetConfig = SHEETS[payload.kind];
+    // Own keys only: "constructor", "__proto__" etc. are not tabs
+    var sheetConfig = Object.prototype.hasOwnProperty.call(SHEETS, payload.kind) ? SHEETS[payload.kind] : null;
     if (!sheetConfig) return jsonResponse({ ok: false, error: 'unknown-kind' });
 
     var row = buildRow(sheetConfig.columns, payload.fields);
