@@ -1,0 +1,208 @@
+# =============================================================
+# .pages.yml
+# Admin panel (Pages CMS) for everything in src/content/.
+# Open https://app.pagescms.org → Sign in with GitHub → pick this
+# repository → branch main. Every Save is a commit; the site
+# redeploys in 1–2 minutes.
+#
+# Every field of every JSON file is listed here, so saving never
+# drops data. If a saved value is invalid, `npm run check-content`
+# stops the deploy and the live site stays as it was.
+# =============================================================
+
+# Uploaded images go to public/media/ and are saved as "/media/<file>"
+media:
+  input: public/media
+  output: /media
+
+content:
+  # ---------- Site settings (src/content/site.json) ----------
+  - name: site
+    label: Site settings
+    type: file
+    path: src/content/site.json
+    format: json
+    fields:
+      - name: identity
+        label: Identity
+        type: object
+        fields:
+          - { name: brandName, label: Brand name, type: string, required: true }
+          - { name: fullName, label: Full name, type: string, required: true }
+          - { name: initials, label: Initials, type: string, required: true, description: 'Shown in the logo when there is no photo, e.g. MM' }
+          - { name: role, label: Role, type: string, required: true }
+          - { name: location, label: Location, type: string, required: true }
+          - { name: isAvailable, label: Show availability badge, type: boolean }
+          - { name: availabilityText, label: Availability text, type: string, required: true }
+          - { name: photoUrl, label: Profile photo, type: image, description: Optional — initials are shown when empty }
+          - { name: responseTime, label: Response time, type: string, required: true, description: 'Used in sentences like "I reply within 24 hours"' }
+      - name: contact
+        label: Contact
+        type: object
+        fields:
+          - { name: email, label: Email, type: string, description: Empty = hidden }
+          - { name: whatsappNumber, label: WhatsApp number, type: string, description: 'Digits only with country code, no + or spaces, e.g. 8801712345678. Empty = hidden' }
+      - name: social
+        label: Social / profile links
+        type: object
+        description: Full links starting with https:// — empty = hidden
+        fields:
+          - { name: github, label: GitHub, type: string }
+          - { name: linkedin, label: LinkedIn, type: string }
+          - { name: fiverr, label: Fiverr, type: string }
+          - { name: upwork, label: Upwork, type: string }
+      - name: about
+        label: About section
+        type: object
+        fields:
+          - { name: heading, label: Heading, type: string, required: true }
+          - { name: paragraphs, label: Paragraphs, type: text, list: true }
+          - { name: workingPrinciples, label: Working principles, type: string, list: true }
+      - name: skillGroups
+        label: Skill groups
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Group title, type: string, required: true }
+          - { name: skills, label: Skills, type: string, list: true }
+      - name: chat
+        label: Floating chat button
+        type: object
+        fields:
+          - { name: isEnabled, label: Show the chat button, type: boolean }
+          - { name: title, label: Panel title, type: string, required: true }
+          - { name: greeting, label: Greeting, type: text, required: true }
+          - { name: messengerUsername, label: Messenger username, type: string, description: The part after facebook.com/ — empty = hidden }
+          - { name: telegramUsername, label: Telegram username, type: string, description: Without the @ — empty = hidden }
+          - { name: showWhatsapp, label: Show WhatsApp, type: boolean, description: Uses the WhatsApp number from Contact }
+      - name: integrations
+        label: Integrations
+        type: object
+        fields:
+          - { name: googleSheetWebAppUrl, label: Google Sheet web app URL, type: string, description: Apps Script web app URL ending with /exec — see README section 3b }
+
+  # ---------- Services (src/content/services.json) ----------
+  - name: services
+    label: Services
+    type: file
+    path: src/content/services.json
+    format: json
+    list: true
+    fields:
+      - { name: id, label: Id, type: string, required: true, description: 'Lowercase letters, numbers and dashes, e.g. excel-dashboard. Projects link to this id' }
+      - { name: title, label: Title, type: string, required: true }
+      - { name: shortTitle, label: Short title, type: string, required: true, description: Used in filters and form choices }
+      - { name: description, label: Description, type: text, required: true }
+      - { name: deliverables, label: Deliverables, type: string, list: true }
+      - { name: ctaLabel, label: Button label, type: string, required: true }
+      - { name: nextStepTip, label: Next-step tip, type: text, required: true, description: Shown in the inquiry form after this service is picked }
+      - name: icon
+        label: Icon
+        type: select
+        options:
+          values: [website, landing-page, chart, automation, cleaning, ai, code, shopping, database, bot, mail, globe]
+      - name: accent
+        label: Accent color
+        type: select
+        options:
+          values: [blue, violet, cyan]
+
+  # ---------- Projects (src/content/projects.json) ----------
+  - name: projects
+    label: Projects
+    type: file
+    path: src/content/projects.json
+    format: json
+    list: true
+    fields:
+      - { name: id, label: Id, type: string, required: true, description: 'Lowercase letters, numbers and dashes, e.g. sales-dashboard' }
+      - { name: title, label: Title, type: string, required: true }
+      - name: serviceId
+        label: Service
+        type: select
+        description: Must be the id of a service (add new ids here after adding a service)
+        options:
+          values: [website, landing-page, excel-dashboard, excel-automation, data-cleaning, ai-automation]
+      - { name: summary, label: Summary, type: text, required: true }
+      - { name: tools, label: Tools, type: string, list: true }
+      - name: mockup
+        label: Illustration (shown when there are no images)
+        type: select
+        options:
+          values: [landing, website, dashboard, automation, cleaning, ai]
+      - { name: isSample, label: Sample project, type: boolean, description: Turn off only for real client work }
+      - { name: liveUrl, label: Live demo link, type: string, description: https:// link — empty = hidden }
+      - { name: sourceUrl, label: Source code link, type: string, description: https:// link — empty = hidden }
+      - name: images
+        label: Screenshots
+        type: object
+        list: true
+        fields:
+          - { name: src, label: Image, type: image }
+          - { name: alt, label: Short description (for screen readers), type: string }
+      - name: caseStudy
+        label: Case study
+        type: object
+        fields:
+          - { name: overview, label: Overview, type: text, required: true }
+          - { name: problem, label: Business problem, type: text, required: true }
+          - { name: solution, label: Solution, type: text, required: true }
+          - { name: process, label: Implementation steps, type: string, list: true }
+          - { name: outcome, label: Outcome, type: text, description: 'Only real, verified results — leave empty otherwise' }
+
+  # ---------- Pricing (src/content/pricing.json) ----------
+  - name: pricing
+    label: Pricing
+    type: file
+    path: src/content/pricing.json
+    format: json
+    fields:
+      - name: tiers
+        label: Pricing tiers
+        type: object
+        list: true
+        fields:
+          - { name: id, label: Id, type: string, required: true, description: 'Lowercase, e.g. starter' }
+          - { name: name, label: Name, type: string, required: true }
+          - { name: tagline, label: Tagline, type: string, required: true }
+          - { name: startingPriceUsd, label: Starting price (USD), type: number, description: Empty = "Request a quote" }
+          - { name: scope, label: Scope, type: text, required: true }
+          - { name: deliverables, label: Deliverables, type: string, list: true }
+          - { name: ctaLabel, label: Button label, type: string, required: true }
+          - { name: isFeatured, label: Highlight as "Most popular", type: boolean }
+      - name: negotiation
+        label: Negotiation (price offers)
+        type: object
+        fields:
+          - { name: isEnabled, label: Show the offer option, type: boolean }
+          - { name: title, label: Title, type: string, required: true }
+          - { name: tagline, label: Tagline, type: string, required: true }
+          - { name: description, label: Description, type: text, required: true }
+          - { name: highlights, label: Highlights, type: string, list: true }
+          - { name: ctaLabel, label: Button label, type: string, required: true }
+          - { name: currencies, label: Currencies, type: string, list: true, description: 'e.g. USD, BDT — the first one is the default' }
+          - { name: privacyNote, label: Privacy note, type: string, required: true }
+
+  # ---------- Testimonials (src/content/testimonials.json) ----------
+  - name: testimonials
+    label: Testimonials
+    type: file
+    path: src/content/testimonials.json
+    format: json
+    list: true
+    description: Real client reviews only. While empty, "What you can expect" is shown instead
+    fields:
+      - { name: quote, label: Quote, type: text, required: true }
+      - { name: clientName, label: Client name, type: string, required: true }
+      - { name: clientRole, label: Client role / company, type: string, required: true }
+      - { name: sourceUrl, label: Source link, type: string, description: Where the review can be verified (https://) — optional }
+
+  # ---------- Form options (src/content/form-options.json) ----------
+  - name: formOptions
+    label: Form options
+    type: file
+    path: src/content/form-options.json
+    format: json
+    fields:
+      - { name: budgets, label: Budget choices, type: string, list: true }
+      - { name: timelines, label: Timeline choices, type: string, list: true }
