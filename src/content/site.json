@@ -77,9 +77,8 @@
     "isEnabled": true,
     "title": "Chat with me",
     "greeting": "Hi! Have a question or a quick project? Message me on your favourite app.",
-    "telegramUsername": "@muntasirmojunder",
-    "showWhatsapp": true,
-    "showEmail": true
+    "telegramUsername": "@muntasirmojumder",
+    "showWhatsapp": true
   },
   "integrations": {
     "googleSheetWebAppUrl": "https://script.google.com/macros/s/AKfycbwA1UDvpG5tdu29Y-Il0B_WEd1bv6PLMbmhyV0KECaK-pQITOu9xaAZ--oP-zEIKe8l/exec"
