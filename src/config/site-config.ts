@@ -41,6 +41,7 @@ interface RawSite {
     messengerUsername?: string | null;
     telegramUsername?: string | null;
     showWhatsapp?: boolean;
+    showEmail?: boolean;
   };
   integrations?: { googleSheetWebAppUrl?: string | null };
 }
@@ -74,13 +75,14 @@ export const ABOUT = { ...site.about, workingPrinciples: site.about.workingPrinc
 /* ---------- 5. Skills (grouped badges, no fake % meters) ---------- */
 export const SKILL_GROUPS: SkillGroup[] = site.skillGroups;
 
-/* ---------- 6. Floating chat button (Messenger / WhatsApp / Telegram) ---------- */
+/* ---------- 6. Floating chat button (Messenger / WhatsApp / Telegram / Email) ---------- */
 export const CHAT = {
   ...site.chat,
   isEnabled: site.chat.isEnabled ?? false,
   messengerUsername: site.chat.messengerUsername ?? '',
   telegramUsername: site.chat.telegramUsername ?? '',
   showWhatsapp: site.chat.showWhatsapp ?? false,
+  showEmail: site.chat.showEmail ?? false,
 };
 
 /* ---------- 7. Integrations ---------- */

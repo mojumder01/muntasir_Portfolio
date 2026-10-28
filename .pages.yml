@@ -73,8 +73,9 @@ content:
           - { name: title, label: Panel title, type: string, required: true }
           - { name: greeting, label: Greeting, type: text, required: true }
           - { name: messengerUsername, label: Messenger username, type: string, description: The part after facebook.com/ — empty = hidden }
-          - { name: telegramUsername, label: Telegram username, type: string, description: Without the @ — empty = hidden }
+          - { name: telegramUsername, label: Telegram username, type: string, description: 'Your exact username from Telegram → Settings → Username (without the @). Check it: t.me/<username> must open your profile. Empty = hidden' }
           - { name: showWhatsapp, label: Show WhatsApp, type: boolean, description: Uses the WhatsApp number from Contact }
+          - { name: showEmail, label: Show Email, type: boolean, description: Uses the email from Contact }
       - name: integrations
         label: Integrations
         type: object

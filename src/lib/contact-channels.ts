@@ -40,7 +40,7 @@ export function getGoogleSheetUrl(): string {
 
 /** Chat links for the floating chat button — only the ones that are set and valid. */
 export interface ChatLink {
-  id: 'messenger' | 'whatsapp' | 'telegram';
+  id: 'messenger' | 'whatsapp' | 'telegram' | 'email';
   label: string;
   url: string;
 }
@@ -59,6 +59,9 @@ export function getChatLinks(): ChatLink[] {
   }
   if (TELEGRAM_USERNAME_PATTERN.test(telegramUsername)) {
     chatLinks.push({ id: 'telegram', label: 'Telegram', url: `https://t.me/${telegramUsername}` });
+  }
+  if (CHAT.showEmail && hasEmail()) {
+    chatLinks.push({ id: 'email', label: 'Email', url: buildMailtoUrl('Hello from your website', '') });
   }
   return chatLinks;
 }

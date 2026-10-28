@@ -9,9 +9,9 @@
 
 /* ---------- 1. Imports ---------- */
 import { AnimatePresence, motion } from 'motion/react';
-import { ArrowUpRight, MessageCircle, X } from 'lucide-react';
+import { ArrowUpRight, Mail, MessageCircle, X } from 'lucide-react';
 import { useEffect, useRef, useState, type ComponentType } from 'react';
-import { CHAT } from '../../config/site-config';
+import { CHAT, CONTACT } from '../../config/site-config';
 import { getChatLinks, type ChatLink } from '../../lib/contact-channels';
 import { MessengerIcon, TelegramIcon, WhatsappIcon } from '../ui/BrandIcons';
 
@@ -20,6 +20,8 @@ const CHAT_APP_STYLES: Record<ChatLink['id'], { icon: ComponentType<{ size?: num
   messenger: { icon: MessengerIcon, circleClass: 'bg-gradient-to-br from-[#0a7cff] to-[#a033ff]', hint: 'Opens Facebook Messenger' },
   whatsapp: { icon: WhatsappIcon, circleClass: 'bg-[#25d366]', hint: 'Opens WhatsApp' },
   telegram: { icon: TelegramIcon, circleClass: 'bg-[#229ed9]', hint: 'Opens Telegram' },
+  // The address itself as hint: still usable on devices without an email app
+  email: { icon: Mail, circleClass: 'bg-gradient-to-br from-blue to-violet', hint: CONTACT.email },
 };
 
 const PANEL_ID = 'chat-panel';
@@ -75,12 +77,13 @@ export function ChatWidget() {
             <ul className="mt-4 flex flex-col gap-2">
               {chatLinks.map((chatLink) => {
                 const { icon: AppIcon, circleClass, hint } = CHAT_APP_STYLES[chatLink.id];
+                // Web links open in a new tab; mailto: opens the email app (a new tab would stay blank)
+                const newTabProps = chatLink.url.startsWith('https://') ? { target: '_blank', rel: 'noopener noreferrer' } : {};
                 return (
                   <li key={chatLink.id}>
                     <a
                       href={chatLink.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      {...newTabProps}
                       onClick={() => setIsOpen(false)}
                       className="group flex min-h-14 items-center gap-3 rounded-xl border border-line px-3 py-2 transition-colors hover:border-line-strong hover:bg-fg/[0.04]"
                     >
@@ -89,7 +92,7 @@ export function ChatWidget() {
                       </span>
                       <span className="flex-1">
                         <span className="block text-[15px] font-semibold">{chatLink.label}</span>
-                        <span className="block text-[12px] text-muted">{hint}</span>
+                        <span className="block text-[12px] break-all text-muted">{hint}</span>
                       </span>
                       <ArrowUpRight size={17} className="text-muted transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
                     </a>
