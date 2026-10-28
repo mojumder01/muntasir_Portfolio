@@ -1,0 +1,122 @@
+[
+  {
+    "id": "haatnest-landing",
+    "title": "Haatnest — Marketplace Landing Page",
+    "serviceId": "landing-page",
+    "summary": "An animated e-commerce marketplace landing page with live search, category filters, a flash-deal countdown and a working cart counter.",
+    "tools": ["HTML", "CSS animations", "JavaScript"],
+    "mockup": "landing",
+    "isSample": true,
+    "liveUrl": "",
+    "sourceUrl": "",
+    "images": [],
+    "caseStudy": {
+      "overview": "A concept landing page for a local online marketplace, built to show how motion and clear structure can make a shopping page feel alive.",
+      "problem": "Marketplace homepages are often crowded: too many banners, no clear path from “browse” to “buy”, and weak performance on mobile.",
+      "solution": "One focused page: a clear hero with search, category shortcuts, a filterable flash-deal grid, a simple “how it works” flow and a seller call-to-action.",
+      "process": [
+        "Defined the page goal: get visitors searching or into deals within seconds",
+        "Designed a bold, outlined visual style with one accent color",
+        "Built lightweight CSS animations that respect reduced-motion settings",
+        "Added working search, filters, countdown and cart feedback in plain JavaScript",
+        "Tested on phone and desktop widths"
+      ],
+      "outcome": ""
+    }
+  },
+  {
+    "id": "service-business-website",
+    "title": "Service Business Website",
+    "serviceId": "website",
+    "summary": "A multi-section website for a local service business with service pages, trust signals and a simple booking inquiry flow.",
+    "tools": ["React", "TypeScript", "Tailwind CSS"],
+    "mockup": "website",
+    "isSample": true,
+    "liveUrl": "",
+    "sourceUrl": "",
+    "images": [],
+    "caseStudy": {
+      "overview": "A sample website showing how a small service business can present its offer clearly and collect inquiries.",
+      "problem": "Many small businesses rely only on social media pages, which makes services, prices and contact options hard to find.",
+      "solution": "A fast, mobile-first site with clear service sections, FAQs and an inquiry form that opens WhatsApp or email with details prefilled.",
+      "process": ["Mapped the pages a customer actually needs", "Wireframed the layout mobile-first", "Built reusable components", "Added SEO basics and deployed"],
+      "outcome": ""
+    }
+  },
+  {
+    "id": "sales-kpi-dashboard",
+    "title": "Sales KPI Dashboard",
+    "serviceId": "excel-dashboard",
+    "summary": "An Excel dashboard that turns a raw sales export into KPI cards, monthly trends and top-product views with slicers.",
+    "tools": ["Excel", "Power Query", "Pivot tables", "Slicers"],
+    "mockup": "dashboard",
+    "isSample": true,
+    "liveUrl": "",
+    "sourceUrl": "",
+    "images": [],
+    "caseStudy": {
+      "overview": "A sample dashboard built from a dummy sales dataset to show a clean reporting layout.",
+      "problem": "Sales data lived in long exports; building the monthly summary by hand took hours and was easy to get wrong.",
+      "solution": "Power Query loads and shapes the export, pivot tables calculate the KPIs, and one dashboard sheet shows everything with slicers.",
+      "process": ["Listed the business questions first", "Cleaned and modeled the data in Power Query", "Built KPI cards, trend and ranking charts", "Added a refresh guide"],
+      "outcome": ""
+    }
+  },
+  {
+    "id": "monthly-report-automation",
+    "title": "Monthly Report Automation",
+    "serviceId": "excel-automation",
+    "summary": "A one-click workflow that merges several Excel files, applies formatting and calculations, and saves a ready-to-send report.",
+    "tools": ["VBA", "Office Scripts", "Python"],
+    "mockup": "automation",
+    "isSample": true,
+    "liveUrl": "",
+    "sourceUrl": "",
+    "images": [],
+    "caseStudy": {
+      "overview": "A sample automation that replaces a repetitive monthly reporting routine.",
+      "problem": "Copying data from several files, fixing formats and recalculating totals every month is slow and error-prone.",
+      "solution": "A macro / script that collects the files, validates columns, builds the report and flags anything unusual for review.",
+      "process": ["Recorded the manual steps", "Automated each step with checks", "Added clear error messages", "Wrote a short run guide"],
+      "outcome": ""
+    }
+  },
+  {
+    "id": "product-data-cleaning",
+    "title": "Product Catalog Data Cleaning",
+    "serviceId": "data-cleaning",
+    "summary": "A cleaning pipeline for a messy product sheet: duplicates, inconsistent units, mixed categories and missing fields.",
+    "tools": ["Python", "pandas", "Excel", "Power Query"],
+    "mockup": "cleaning",
+    "isSample": true,
+    "liveUrl": "",
+    "sourceUrl": "",
+    "images": [],
+    "caseStudy": {
+      "overview": "A sample cleaning job based on the kind of product data problems common in e-commerce catalogs.",
+      "problem": "Duplicate rows, units written five different ways, wrong categories and blank required fields made the data unusable for reports or uploads.",
+      "solution": "Rule-based cleaning steps plus a validation report listing every row that still needs a human decision.",
+      "process": ["Profiled the data to find issue types", "Wrote reusable cleaning rules", "Generated a validation report", "Delivered clean file + rules"],
+      "outcome": ""
+    }
+  },
+  {
+    "id": "ai-content-workflow",
+    "title": "AI Product Content Workflow",
+    "serviceId": "ai-automation",
+    "summary": "An AI-assisted workflow that drafts product titles and descriptions from a spreadsheet, with a human review step before publishing.",
+    "tools": ["Python", "LLM API", "Google Sheets"],
+    "mockup": "ai",
+    "isSample": true,
+    "liveUrl": "",
+    "sourceUrl": "",
+    "images": [],
+    "caseStudy": {
+      "overview": "A sample workflow showing how AI can speed up content work while a person stays in control.",
+      "problem": "Writing consistent product content for many items by hand is slow, and quality varies between writers.",
+      "solution": "Rows go from a sheet to an AI step with clear writing rules; drafts come back to the sheet for review and approval.",
+      "process": ["Defined content rules and examples", "Built the sheet → AI → sheet loop", "Added checks for length and banned words", "Kept a human approval column"],
+      "outcome": ""
+    }
+  }
+]

@@ -1,0 +1,187 @@
+/* =============================================================
+   index.css
+   Global styles: Tailwind, the two color themes, background
+   effects and small keyframe animations.
+
+   THEMES
+   - Default: black & white (light)  → values in @theme below
+   - Dark:    blue / violet / cyan   → values in [data-theme='dark']
+   Change any color here and the whole site follows.
+   ============================================================= */
+
+@import 'tailwindcss';
+
+/* ========== Default theme: black & white (used as Tailwind classes, e.g. bg-ink, text-muted) ========== */
+@theme {
+  --font-sans: 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, 'SFMono-Regular', monospace;
+
+  --color-ink: #ffffff; /* page background */
+  --color-surface: #fafafa; /* cards */
+  --color-surface-2: #f1f1f1; /* raised elements */
+  --color-fg: #000000; /* base for faint overlays, e.g. bg-fg/5 */
+  --color-line: rgb(0 0 0 / 0.09); /* thin borders */
+  --color-line-strong: rgb(0 0 0 / 0.18);
+  --color-text: #0a0a0a; /* main text */
+  --color-muted: #525252; /* secondary text (7.8:1 contrast on white) */
+
+  /* "Accent" slots — greys in black & white mode */
+  --color-blue: #111111;
+  --color-violet: #3f3f46;
+  --color-cyan: #737373;
+  --color-blue-text: #111111;
+  --color-violet-text: #3f3f46;
+  --color-cyan-text: #404040;
+
+  --color-success: #15803d;
+  --color-danger: #b91c1c;
+  --color-button-glow: rgb(0 0 0 / 0.28);
+}
+
+/* ========== Dark theme ========== */
+:root[data-theme='dark'] {
+  --color-ink: #07080c;
+  --color-surface: #0d0f16;
+  --color-surface-2: #141824;
+  --color-fg: #ffffff;
+  --color-line: rgb(255 255 255 / 0.08);
+  --color-line-strong: rgb(255 255 255 / 0.16);
+  --color-text: #e8eaf0;
+  --color-muted: #9aa3b2; /* 7:1 contrast on ink */
+
+  --color-blue: #4f7cff;
+  --color-violet: #8b5cf6;
+  --color-cyan: #22d3ee;
+  --color-blue-text: #8ea9ff;
+  --color-violet-text: #b9a1fb;
+  --color-cyan-text: #67e3f5;
+
+  --color-success: #34d399;
+  --color-danger: #fb7185;
+  --color-button-glow: rgb(110 110 255 / 0.6);
+}
+
+/* ========== Base ========== */
+@layer base {
+  html {
+    color-scheme: light; /* native form controls & scrollbars match the theme */
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px; /* keeps section titles below the sticky navbar */
+    -webkit-text-size-adjust: 100%;
+  }
+  html[data-theme='dark'] {
+    color-scheme: dark;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-ink);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip; /* decorative glows never cause sideways scrolling */
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-blue) 30%, transparent);
+  }
+
+  /* Clear, visible keyboard focus everywhere */
+  :focus-visible {
+    outline: 2px solid var(--color-blue-text);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  dialog::backdrop {
+    background: rgb(3 4 8 / 0.7);
+    backdrop-filter: blur(6px);
+  }
+}
+
+/* ========== Reusable helpers ========== */
+@layer components {
+  /* Centered page width with phone-friendly side padding */
+  .page-container {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 16px;
+  }
+  @media (min-width: 640px) {
+    .page-container {
+      padding-inline: 24px;
+    }
+  }
+
+  /* Gradient text for key words in headings (greys in B&W mode) */
+  .text-gradient {
+    background: linear-gradient(100deg, #000000 0%, #3f3f46 55%, #737373 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  [data-theme='dark'] .text-gradient {
+    background-image: linear-gradient(100deg, #7ea0ff 0%, #a78bfa 45%, #22d3ee 100%);
+  }
+
+  /* Glass card: used selectively, not everywhere */
+  .glass {
+    background: color-mix(in oklab, var(--color-surface-2) 60%, transparent);
+    border: 1px solid var(--color-line);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  /* Faint grid behind the hero */
+  .bg-grid {
+    background-image:
+      linear-gradient(color-mix(in oklab, var(--color-fg) 5%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in oklab, var(--color-fg) 5%, transparent) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 40%, transparent 100%);
+  }
+
+  /* Soft light blobs (much subtler in B&W mode) */
+  .glow-orb {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(90px);
+    pointer-events: none;
+    opacity: 0.35;
+    animation: orb-drift 18s ease-in-out infinite alternate;
+  }
+  [data-theme='dark'] .glow-orb {
+    opacity: 1;
+  }
+}
+
+/* ========== Keyframes ========== */
+@keyframes orb-drift {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(40px, -30px, 0) scale(1.1); }
+}
+
+@keyframes flow-dash {
+  to { stroke-dashoffset: -24; }
+}
+
+@keyframes scroll-dot {
+  0% { transform: translateY(0); opacity: 1; }
+  70% { transform: translateY(10px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 0; }
+}
+
+.animate-flow-dash { animation: flow-dash 1.2s linear infinite; }
+.animate-scroll-dot { animation: scroll-dot 1.8s ease-in-out infinite; }
+
+/* ========== Respect "reduce motion" system setting ========== */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

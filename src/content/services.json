@@ -1,0 +1,68 @@
+[
+  {
+    "id": "website",
+    "title": "Website Design & Development",
+    "shortTitle": "Websites",
+    "description": "Modern, responsive websites tailored to your business goals — professional layouts, clean code and fast loading.",
+    "deliverables": ["Mobile-first responsive design", "Clean, documented code", "Basic SEO setup", "Deployment to your hosting"],
+    "ctaLabel": "Build My Website",
+    "nextStepTip": "Share your current site (if any), 2–3 websites you like and the pages you need.",
+    "icon": "website",
+    "accent": "blue"
+  },
+  {
+    "id": "landing-page",
+    "title": "Landing Page Design",
+    "shortTitle": "Landing Pages",
+    "description": "Conversion-focused landing pages that explain your value clearly and move visitors to take action.",
+    "deliverables": ["Clear message & section structure", "Strong call-to-action flow", "Smooth, lightweight animation", "Fast, mobile-ready build"],
+    "ctaLabel": "Create My Landing Page",
+    "nextStepTip": "Tell me the product or offer, who it is for, and the one action visitors should take.",
+    "icon": "landing-page",
+    "accent": "violet"
+  },
+  {
+    "id": "excel-dashboard",
+    "title": "Excel Dashboard Development",
+    "shortTitle": "Excel Dashboards",
+    "description": "Interactive Excel dashboards with KPIs, charts, summaries and reporting views that make your data easy to understand.",
+    "deliverables": ["KPI cards & charts", "Filters / slicers", "Auto-updating summaries", "Short how-to-use guide"],
+    "ctaLabel": "Build My Dashboard",
+    "nextStepTip": "Send a small sample of your data (remove private info) and the questions the dashboard should answer.",
+    "icon": "chart",
+    "accent": "cyan"
+  },
+  {
+    "id": "excel-automation",
+    "title": "Excel Automation",
+    "shortTitle": "Excel Automation",
+    "description": "Automate repetitive Excel tasks — reports, formatting, calculations and routine workflows — with formulas, VBA, Office Scripts or Python.",
+    "deliverables": ["One-click or scheduled reports", "Formatting & calculation macros", "Error checks built in", "Step-by-step run guide"],
+    "ctaLabel": "Automate My Excel Tasks",
+    "nextStepTip": "Describe the task you repeat, how often you do it, and share a sample input and the output you want.",
+    "icon": "automation",
+    "accent": "blue"
+  },
+  {
+    "id": "data-cleaning",
+    "title": "Excel Data Cleaning",
+    "shortTitle": "Data Cleaning",
+    "description": "Clean, standardize, validate and organize Excel datasets so they are ready for reporting and analysis.",
+    "deliverables": ["Duplicates & blanks removed", "Consistent formats & categories", "Validation report of issues", "Reusable cleaning steps"],
+    "ctaLabel": "Clean My Data",
+    "nextStepTip": "Share a sample of the messy file (remove private info) and how the clean version should look.",
+    "icon": "cleaning",
+    "accent": "violet"
+  },
+  {
+    "id": "ai-automation",
+    "title": "AI Automation",
+    "shortTitle": "AI Automation",
+    "description": "Practical AI-assisted workflows for content processing, data handling, business operations and repetitive digital tasks.",
+    "deliverables": ["Workflow mapping", "AI step with human review", "Integration with Sheets / files / apps", "Cost & accuracy notes"],
+    "ctaLabel": "Explore AI Automation",
+    "nextStepTip": "Explain the task, how many items you handle per day or week, and the tools you already use.",
+    "icon": "ai",
+    "accent": "cyan"
+  }
+]

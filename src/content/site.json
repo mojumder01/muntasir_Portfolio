@@ -1,0 +1,90 @@
+{
+  "identity": {
+    "brandName": "Muntasir Mojumder",
+    "fullName": "Md Muntasir Mamun Mojumder",
+    "initials": "MM",
+    "role": "Digital Solutions Specialist",
+    "location": "Bangladesh · Working with clients worldwide",
+    "isAvailable": true,
+    "availabilityText": "Available for new projects",
+    "photoUrl": "",
+    "responseTime": "within 24 hours"
+  },
+  "contact": {
+    "email": "",
+    "whatsappNumber": ""
+  },
+  "social": {
+    "github": "https://github.com/mojumder01",
+    "linkedin": "",
+    "fiverr": "",
+    "upwork": ""
+  },
+  "about": {
+    "heading": "I turn messy, manual work into clean digital systems.",
+    "paragraphs": [
+      "I’m a software engineering graduate with several years inside e-commerce operations — working with large product catalogs, product content and the internal tools that keep them clean.",
+      "That background shapes how I work: I build websites that are clear and fast, dashboards that answer real business questions, and automations that remove the repetitive work your team does every week."
+    ],
+    "workingPrinciples": [
+      "Clear scope and deliverables before work starts",
+      "Regular updates — you always know the status",
+      "Clean, documented work you can maintain",
+      "Handover guide and agreed support after delivery"
+    ]
+  },
+  "skillGroups": [
+    {
+      "title": "Web",
+      "skills": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "TypeScript",
+        "React",
+        "Tailwind CSS"
+      ]
+    },
+    {
+      "title": "Excel & data",
+      "skills": [
+        "Advanced formulas",
+        "Pivot tables",
+        "Power Query",
+        "VBA",
+        "Office Scripts",
+        "Google Sheets + Apps Script"
+      ]
+    },
+    {
+      "title": "Automation & AI",
+      "skills": [
+        "Python",
+        "pandas",
+        "Playwright",
+        "FastAPI",
+        "LLM APIs",
+        "LangGraph"
+      ]
+    },
+    {
+      "title": "Workflow",
+      "skills": [
+        "Git & GitHub",
+        "Telegram / email alerts",
+        "Documentation"
+      ]
+    }
+  ],
+  "chat": {
+    "isEnabled": true,
+    "title": "Chat with me",
+    "greeting": "Hi! Have a question or a quick project? Message me on your favourite app.",
+    "messengerUsername": "",
+    "telegramUsername": "",
+    "showWhatsapp": true
+  },
+  "integrations": {
+    "googleSheetWebAppUrl": ""
+  }
+}

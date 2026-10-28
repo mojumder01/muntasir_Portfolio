@@ -1,0 +1,44 @@
+{
+  "tiers": [
+    {
+      "id": "starter",
+      "name": "Starter",
+      "tagline": "Small tasks and simple projects",
+      "startingPriceUsd": null,
+      "scope": "One focused deliverable with a clear, small scope.",
+      "deliverables": ["Single landing page or small fix", "Simple Excel sheet, formula or cleanup", "1 round of revisions", "Delivery guide"],
+      "ctaLabel": "Start Small",
+      "isFeatured": false
+    },
+    {
+      "id": "professional",
+      "name": "Professional",
+      "tagline": "Complete business solutions",
+      "startingPriceUsd": null,
+      "scope": "A complete solution covering several pages, sheets or workflow steps.",
+      "deliverables": ["Multi-section website or full dashboard", "Automation of a full routine", "2 rounds of revisions", "Handover session + 14 days support"],
+      "ctaLabel": "Choose Professional",
+      "isFeatured": true
+    },
+    {
+      "id": "custom",
+      "name": "Custom Solution",
+      "tagline": "Tailored builds and integrations",
+      "startingPriceUsd": null,
+      "scope": "Websites, dashboards, integrations and AI automation shaped around your process.",
+      "deliverables": ["Discovery call & written scope", "Milestone-based delivery", "Integrations with your tools", "Agreed support period"],
+      "ctaLabel": "Request a Quote",
+      "isFeatured": false
+    }
+  ],
+  "negotiation": {
+    "isEnabled": true,
+    "title": "Negotiation",
+    "tagline": "Have a budget in mind? Make an offer.",
+    "description": "Tell me what you need and the price you’d like to pay. I review every offer and reply with a yes, a counter-offer or a smaller scope that fits your budget.",
+    "highlights": ["Name your own price", "Counter-offer or adjusted scope", "No obligation"],
+    "ctaLabel": "Make an Offer",
+    "currencies": ["USD", "BDT"],
+    "privacyNote": "Your details are only used to reply to your offer."
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "budgets": ["Under $100", "$100 – $300", "$300 – $700", "$700+", "Not sure yet"],
+  "timelines": ["Within 1 week", "2–3 weeks", "1 month or more", "Flexible"]
+}

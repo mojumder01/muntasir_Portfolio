@@ -1,0 +1,29 @@
+{
+  "name": "mojumder-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Digital services portfolio for Md Muntasir Mamun Mojumder — websites, landing pages, Excel dashboards, Excel automation and AI workflows.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "check-content": "node scripts/validate-content.mjs",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "build": "npm run check-content && tsc --noEmit -p tsconfig.json && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "lucide-react": "1.62.0",
+    "motion": "14.7.1",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.3.3",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "tailwindcss": "4.3.3",
+    "typescript": "5.9.3",
+    "vite": "8.3.5"
+  }
+}
