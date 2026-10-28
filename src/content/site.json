@@ -79,5 +79,8 @@
     "greeting": "Hi! Have a question or a quick project? Message me on your favourite app.",
     "telegramUsername": "@muntasirmojumder",
     "showWhatsapp": true
+  },
+  "integrations": {
+    "googleSheetWebAppUrl": "https://docs.google.com/spreadsheets/d/1jjhTUVDzowmCp7YWSwMWnT_hV1AjAvQQMOv-Pp9G5dA/edit?gid=0#gid=0"
   }
 }
