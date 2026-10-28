@@ -81,6 +81,6 @@
     "showWhatsapp": true
   },
   "integrations": {
-    "googleSheetWebAppUrl": ""
+    "googleSheetWebAppUrl": "https://docs.google.com/spreadsheets/d/1jjhTUVDzowmCp7YWSwMWnT_hV1AjAvQQMOv-Pp9G5dA/edit?gid=0#gid=0"
   }
 }
