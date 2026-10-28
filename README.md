@@ -95,12 +95,13 @@ Good to know
 - Built-in protection: spam-trap field, max 20 messages per minute, values that look like formulas (`=`, `+`, `-`, `@`) are stored as plain text, long text is cut.
 - Works together with Formspree/email/WhatsApp: if the sheet is set, messages are saved automatically; the visitor sees "sent" only after a destination confirms it.
 
-## 3c. Floating chat button (Messenger · WhatsApp · Telegram)
+## 3c. Floating chat button (Messenger · WhatsApp · Telegram · Email)
 
 A round chat button sits at the bottom-right of every page. Set it in **Site settings → Floating chat button**:
 - **Messenger username** — the part after `facebook.com/` of your page or profile (opens `m.me/<username>`).
 - **WhatsApp** — uses the number from Contact (switch with *Show WhatsApp*).
-- **Telegram username** — without `@` (opens `t.me/<username>`).
+- **Telegram username** — your exact username from Telegram → Settings → Username, without `@` (opens `t.me/<username>`).
+- **Email** — uses the email from Contact (switch with *Show Email*). The address is shown too, for visitors without an email app.
 
 Empty fields are hidden; if none is set, the button doesn't appear. (Facebook retired its embedded chat plugin, so Messenger opens via the official `m.me` link.)
 

@@ -141,7 +141,10 @@ export function InquiryForm() {
               legend="Preferred contact method"
               options={delivery.availableMethods.map((method) => ({ value: method.id, label: method.label }))}
               selectedValue={inquiry.contactMethod}
-              onSelect={(value) => updateField('contactMethod', value as ContactMethodId)}
+              onSelect={(value) => {
+                updateField('contactMethod', value as ContactMethodId);
+                delivery.resetStatus(); // an earlier "WhatsApp/email app should now be open" no longer matches
+              }}
             />
           )}
         </div>

@@ -122,6 +122,7 @@ function checkSite(site, problems) {
   const chat = site.chat ?? {};
   check.bool(chat.isEnabled, ['chat', 'isEnabled']);
   check.bool(chat.showWhatsapp, ['chat', 'showWhatsapp']);
+  check.bool(chat.showEmail, ['chat', 'showEmail']);
   ['title', 'greeting'].forEach((key) => check.text(chat[key], ['chat', key]));
   if (chat.messengerUsername && !MESSENGER_USERNAME_PATTERN.test(chat.messengerUsername)) {
     check.add(['chat', 'messengerUsername'], 'write only the username from your Facebook link, e.g. "muntasir.digital" from facebook.com/muntasir.digital');

@@ -112,7 +112,10 @@ function OfferForm({ initialPackage, onClose }: { initialPackage: string; onClos
           legend="Send my offer by"
           options={delivery.availableMethods.map((method) => ({ value: method.id, label: method.label }))}
           selectedValue={offer.contactMethod}
-          onSelect={(value) => updateField('contactMethod', value as ContactMethodId)}
+          onSelect={(value) => {
+            updateField('contactMethod', value as ContactMethodId);
+            delivery.resetStatus(); // an earlier "WhatsApp/email app should now be open" no longer matches
+          }}
         />
       )}
 
