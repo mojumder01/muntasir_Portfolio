@@ -10,6 +10,10 @@
     "photoUrl": "/media/Photo.jpg",
     "responseTime": "within 24 hours"
   },
+  "appearance": {
+    "palette": "sunset",
+    "defaultTheme": "light"
+  },
   "contact": {
     "email": "muntasir077@gmail.com",
     "whatsappNumber": "8801684531212"
@@ -84,9 +88,5 @@
   },
   "integrations": {
     "googleSheetWebAppUrl": "https://script.google.com/macros/s/AKfycbwA1UDvpG5tdu29Y-Il0B_WEd1bv6PLMbmhyV0KECaK-pQITOu9xaAZ--oP-zEIKe8l/exec"
-  },
-  "appearance": {
-    "palette": "ocean",
-    "defaultTheme": "light"
   }
 }
