@@ -25,6 +25,16 @@ const MAX_PRICE = 1_000_000;
 const GOOGLE_SCRIPT_URL_PATTERN = /^https:\/\/script\.google\.com\/macros\/s\/[\w-]+\/exec$/;
 const MESSENGER_USERNAME_PATTERN = /^@?[A-Za-z0-9.]{3,50}$/;
 const TELEGRAM_USERNAME_PATTERN = /^@?[A-Za-z][A-Za-z0-9_]{4,31}$/;
+// Same link formats the site accepts (src/lib/contact-channels.ts)
+const FACEBOOK_LINK_PATTERN = /^(?:https?:\/\/)?(?:(?:www|m|web)\.)?(?:facebook\.com|fb\.com|m\.me)\/(?:profile\.php\?id=)?([^/?#]+)/i;
+const TELEGRAM_LINK_PATTERN = /^(?:https?:\/\/)?(?:www\.)?(?:t\.me|telegram\.me)\/([^/?#]+)/i;
+const THEMES = ['light', 'dark'];
+
+/** True when the value is a valid username, or a profile link that contains one. */
+function isUsernameOrLink(value, linkPattern, usernamePattern) {
+  const trimmedValue = String(value).trim();
+  return usernamePattern.test(trimmedValue.match(linkPattern)?.[1] ?? trimmedValue);
+}
 
 /* ---------- 2. Small checking helpers ---------- */
 
@@ -124,12 +134,17 @@ function checkSite(site, problems) {
   check.bool(chat.showWhatsapp, ['chat', 'showWhatsapp']);
   check.bool(chat.showEmail, ['chat', 'showEmail']);
   ['title', 'greeting'].forEach((key) => check.text(chat[key], ['chat', key]));
-  if (chat.messengerUsername && !MESSENGER_USERNAME_PATTERN.test(chat.messengerUsername)) {
-    check.add(['chat', 'messengerUsername'], 'write only the username from your Facebook link, e.g. "muntasir.digital" from facebook.com/muntasir.digital');
+  if (chat.messengerUsername && !isUsernameOrLink(chat.messengerUsername, FACEBOOK_LINK_PATTERN, MESSENGER_USERNAME_PATTERN)) {
+    check.add(['chat', 'messengerUsername'], 'write your Facebook username (e.g. "muntasir.digital") or paste your link, e.g. https://www.facebook.com/muntasir.digital');
   }
-  if (chat.telegramUsername && !TELEGRAM_USERNAME_PATTERN.test(chat.telegramUsername)) {
-    check.add(['chat', 'telegramUsername'], 'write your Telegram username without spaces, e.g. "muntasir_dev" (5–32 letters, numbers or _)');
+  if (chat.telegramUsername && !isUsernameOrLink(chat.telegramUsername, TELEGRAM_LINK_PATTERN, TELEGRAM_USERNAME_PATTERN)) {
+    check.add(['chat', 'telegramUsername'], 'write your Telegram username without spaces, e.g. "muntasir_dev" (5–32 letters, numbers or _), or paste your t.me link');
   }
+
+  // Optional: missing values use the defaults (palette "ocean", light theme)
+  const appearance = site.appearance ?? {};
+  if (appearance.palette !== undefined) check.oneOf(appearance.palette, RULES.palettes, ['appearance', 'palette']);
+  if (appearance.defaultTheme !== undefined) check.oneOf(appearance.defaultTheme, THEMES, ['appearance', 'defaultTheme']);
 
   const sheetUrl = String(site.integrations?.googleSheetWebAppUrl ?? '').trim();
   if (sheetUrl && !GOOGLE_SCRIPT_URL_PATTERN.test(sheetUrl)) {
@@ -260,6 +275,23 @@ export function validateContent() {
   if (testimonials) checkTestimonials(testimonials, problems);
   if (formOptions) checkFormOptions(formOptions, problems);
   return problems;
+}
+
+/**
+ * The admin's color settings (site.json → appearance) for the <html> tag.
+ * Only known values are returned — they are written into the page's HTML.
+ */
+export function readAppearance() {
+  let appearance = {};
+  try {
+    appearance = JSON.parse(readFileSync(join(CONTENT_DIR, 'site.json'), 'utf8')).appearance ?? {};
+  } catch {
+    // A broken site.json is reported by validateContent(); use the defaults here
+  }
+  return {
+    palette: RULES.palettes.includes(appearance.palette) ? appearance.palette : RULES.palettes[0],
+    defaultTheme: THEMES.includes(appearance.defaultTheme) ? appearance.defaultTheme : 'light',
+  };
 }
 
 /** Human-friendly report used by the CLI and the build. */

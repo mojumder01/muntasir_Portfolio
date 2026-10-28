@@ -32,7 +32,7 @@ The admin forms are defined in **`.pages.yml`**. Login is handled by GitHub, so 
 
 | File | Admin section | What it controls |
 |---|---|---|
-| `site.json` | Site settings | Name, role, bio, **email**, **WhatsApp**, social links, skills, availability badge, profile photo |
+| `site.json` | Site settings | Name, role, bio, **email**, **WhatsApp**, social links, skills, availability badge, profile photo, **colors** |
 | `services.json` | Services | The service cards (icon, accent, text, button labels) |
 | `projects.json` | Projects | Portfolio projects + case studies + screenshots |
 | `pricing.json` | Pricing | Tiers (`startingPriceUsd`: number or empty → "Request a quote") and the **Negotiation** option |
@@ -52,9 +52,12 @@ Tips
 - Uploaded images go to `public/media/`.
 - Projects with `isSample: true` show a "Sample project" badge. Set it to `false` only for real client work, and only write **verified** results in `outcome`.
 
-### Themes
-- **Default: black & white.** Visitors can switch to the **dark** theme with the moon/sun button in the navbar; their choice is remembered in their browser.
-- Colors for both themes are at the top of `src/index.css`.
+### Colors & themes
+- **Site settings → Appearance** in the admin:
+  - **Color palette** — `ocean` (blue/violet/cyan, default), `emerald` (green/teal), `sunset` (orange/rose), `royal` (indigo/purple/pink) or `mono` (black & white).
+  - **Default theme for new visitors** — `light` or `dark`.
+- Visitors can switch light/dark with the moon/sun button in the navbar; their choice is remembered in their browser.
+- The palette colors are in `src/index.css` (all chosen to stay readable).
 
 ### Negotiation (price offers)
 The Pricing section has a **Negotiation** card, and every package has an "or make an offer" link. Visitors fill in **name, phone, email, address, their bid price + currency**, what it's for and optional notes. It is delivered the same way as the inquiry form (below). Turn it off with `negotiation.isEnabled: false` in the admin.
@@ -98,7 +101,7 @@ Good to know
 ## 3c. Floating chat button (Messenger · WhatsApp · Telegram · Email)
 
 A round chat button sits at the bottom-right of every page. Set it in **Site settings → Floating chat button**:
-- **Messenger username** — the part after `facebook.com/` of your page or profile (opens `m.me/<username>`).
+- **Facebook / Messenger** — your Facebook username, or paste your profile/page link (opens `m.me/<username>`).
 - **WhatsApp** — uses the number from Contact (switch with *Show WhatsApp*).
 - **Telegram username** — your exact username from Telegram → Settings → Username, without `@` (opens `t.me/<username>`).
 - **Email** — uses the email from Contact (switch with *Show Email*). The address is shown too, for visitors without an email app.
