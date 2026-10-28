@@ -42,9 +42,11 @@ function createChecker(fileName) {
       if (isRequired && value.trim() === '') add(path, 'is empty — please write something');
     },
     bool(value, path) {
-      if (typeof value !== 'boolean') add(path, 'should be true or false (no quotes)');
+      // Missing = false: the admin leaves out switches that are off
+      if (value !== undefined && typeof value !== 'boolean') add(path, 'should be true or false (no quotes)');
     },
     textList(value, path, { minItems = 1 } = {}) {
+      if (value === undefined && minItems === 0) return; // optional list the admin left out because it's empty
       if (!Array.isArray(value)) return add(path, 'should be a list like ["one", "two"]');
       if (value.length < minItems) add(path, `needs at least ${minItems} item(s)`);
       value.forEach((item, index) => {
@@ -128,9 +130,14 @@ function checkSite(site, problems) {
     check.add(['chat', 'telegramUsername'], 'write your Telegram username without spaces, e.g. "muntasir_dev" (5–32 letters, numbers or _)');
   }
 
-  const sheetUrl = site.integrations?.googleSheetWebAppUrl ?? '';
-  if (sheetUrl && !GOOGLE_SCRIPT_URL_PATTERN.test(sheetUrl.trim())) {
-    check.add(['integrations', 'googleSheetWebAppUrl'], 'paste the Apps Script "Web app" URL — it starts with https://script.google.com/macros/s/ and ends with /exec');
+  const sheetUrl = String(site.integrations?.googleSheetWebAppUrl ?? '').trim();
+  if (sheetUrl && !GOOGLE_SCRIPT_URL_PATTERN.test(sheetUrl)) {
+    const isSpreadsheetLink = sheetUrl.includes('docs.google.com/spreadsheets');
+    check.add(
+      ['integrations', 'googleSheetWebAppUrl'],
+      (isSpreadsheetLink ? 'this is the link of the sheet itself, which cannot receive messages. In the sheet open Extensions → Apps Script → Deploy and copy the "Web app" URL instead — ' : 'paste the Apps Script "Web app" URL — ') +
+        'it starts with https://script.google.com/macros/s/ and ends with /exec (README section 3b)',
+    );
   }
 
   if (!Array.isArray(site.skillGroups)) check.add(['skillGroups'], 'should be a list of groups');
