@@ -13,6 +13,16 @@ const FORMSPREE_ID_PATTERN = /^[a-zA-Z0-9]{6,16}$/;
 const GOOGLE_SCRIPT_URL_PATTERN = /^https:\/\/script\.google\.com\/macros\/s\/[\w-]+\/exec$/; // Apps Script web app
 const MESSENGER_USERNAME_PATTERN = /^[A-Za-z0-9.]{3,50}$/; // Facebook page/profile username
 const TELEGRAM_USERNAME_PATTERN = /^[A-Za-z][A-Za-z0-9_]{4,31}$/; // Telegram @username without the @
+// Pasted profile links: facebook.com/<name>, facebook.com/profile.php?id=<id>, m.me/<name>, t.me/<name>
+const FACEBOOK_LINK_PATTERN = /^(?:https?:\/\/)?(?:(?:www|m|web)\.)?(?:facebook\.com|fb\.com|m\.me)\/(?:profile\.php\?id=)?([^/?#]+)/i;
+const TELEGRAM_LINK_PATTERN = /^(?:https?:\/\/)?(?:www\.)?(?:t\.me|telegram\.me)\/([^/?#]+)/i;
+
+/** The username from "name", "@name" or a pasted profile link; '' when it isn't a valid username. */
+function extractUsername(value: string, linkPattern: RegExp, usernamePattern: RegExp): string {
+  const trimmedValue = value.trim();
+  const username = trimmedValue.match(linkPattern)?.[1] ?? trimmedValue.replace(/^@/, '');
+  return usernamePattern.test(username) ? username : '';
+}
 
 /* ---------- 2. Channel checks ---------- */
 
@@ -48,16 +58,16 @@ export interface ChatLink {
 export function getChatLinks(): ChatLink[] {
   if (!CHAT.isEnabled) return [];
   const chatLinks: ChatLink[] = [];
-  const messengerUsername = CHAT.messengerUsername.trim().replace(/^@/, '');
-  const telegramUsername = CHAT.telegramUsername.trim().replace(/^@/, '');
+  const messengerUsername = extractUsername(CHAT.messengerUsername, FACEBOOK_LINK_PATTERN, MESSENGER_USERNAME_PATTERN);
+  const telegramUsername = extractUsername(CHAT.telegramUsername, TELEGRAM_LINK_PATTERN, TELEGRAM_USERNAME_PATTERN);
 
-  if (MESSENGER_USERNAME_PATTERN.test(messengerUsername)) {
+  if (messengerUsername) {
     chatLinks.push({ id: 'messenger', label: 'Messenger', url: `https://m.me/${messengerUsername}` });
   }
   if (CHAT.showWhatsapp && hasWhatsapp()) {
     chatLinks.push({ id: 'whatsapp', label: 'WhatsApp', url: buildWhatsappUrl('Hi! I found you through your website.') });
   }
-  if (TELEGRAM_USERNAME_PATTERN.test(telegramUsername)) {
+  if (telegramUsername) {
     chatLinks.push({ id: 'telegram', label: 'Telegram', url: `https://t.me/${telegramUsername}` });
   }
   if (CHAT.showEmail && hasEmail()) {

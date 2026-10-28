@@ -1,5 +1,6 @@
 {
   "icons": ["website", "landing-page", "chart", "automation", "cleaning", "ai", "code", "shopping", "database", "bot", "mail", "globe"],
   "accents": ["blue", "violet", "cyan"],
-  "mockups": ["landing", "website", "dashboard", "automation", "cleaning", "ai"]
+  "mockups": ["landing", "website", "dashboard", "automation", "cleaning", "ai"],
+  "palettes": ["ocean", "emerald", "sunset", "royal", "mono"]
 }

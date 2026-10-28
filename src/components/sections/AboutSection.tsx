@@ -33,7 +33,7 @@ export function AboutSection() {
             <div aria-hidden="true" className="glow-orb -top-20 -left-16 size-56 bg-blue/25" />
             <div className="relative">
               {SITE.photoUrl ? (
-                <img src={SITE.photoUrl} alt={`Portrait of ${SITE.fullName}`} className="size-28 rounded-2xl border border-line-strong object-cover" />
+                <img src={SITE.photoUrl} alt={`Portrait of ${SITE.fullName}`} className="aspect-[4/5] w-full max-w-sm rounded-2xl border border-line-strong object-cover" />
               ) : (
                 <span className="grid size-28 place-items-center rounded-2xl bg-gradient-to-br from-blue to-violet text-4xl font-bold text-white" aria-hidden="true">
                   {SITE.initials}

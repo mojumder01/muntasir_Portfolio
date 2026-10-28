@@ -82,7 +82,8 @@ export const CHAT = {
   messengerUsername: site.chat.messengerUsername ?? '',
   telegramUsername: site.chat.telegramUsername ?? '',
   showWhatsapp: site.chat.showWhatsapp ?? false,
-  showEmail: site.chat.showEmail ?? false,
+  // On unless switched off: an admin page opened before this setting existed saves without it
+  showEmail: site.chat.showEmail ?? true,
 };
 
 /* ---------- 7. Integrations ---------- */

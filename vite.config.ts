@@ -9,7 +9,7 @@
 import { defineConfig, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
-import { formatProblems, validateContent } from './scripts/validate-content.mjs';
+import { formatProblems, readAppearance, validateContent } from './scripts/validate-content.mjs';
 
 /* ---------- 2. Settings ---------- */
 
@@ -74,8 +74,22 @@ function contentChecker(): Plugin {
   };
 }
 
+/**
+ * Puts the admin's color settings (Site settings → Appearance) on <html>, so the chosen
+ * palette and default theme show from the first paint. public/theme-init.js reads them.
+ */
+function siteAppearance(): Plugin {
+  return {
+    name: 'site-appearance',
+    transformIndexHtml(html) {
+      const { palette, defaultTheme } = readAppearance(); // known values only
+      return html.replace(/<html\b([^>]*)>/, `<html$1 data-palette="${palette}" data-default-theme="${defaultTheme}">`);
+    },
+  };
+}
+
 /* ---------- 4. Export config ---------- */
 export default defineConfig({
   base: BASE_PATH,
-  plugins: [contentChecker(), react(), tailwindcss(), securityMetaTags()],
+  plugins: [contentChecker(), siteAppearance(), react(), tailwindcss(), securityMetaTags()],
 });

@@ -61,6 +61,78 @@
   --color-button-glow: rgb(110 110 255 / 0.6);
 }
 
+/* ========== Color palettes (admin: Site settings → Appearance → Color palette) ==========
+   Each palette recolors the three accent slots for both themes.
+   "mono" has no overrides: black & white in light mode, the dark theme above in dark mode.
+   Light-mode buttons put white text on blue → violet, so those two stay dark enough to read. */
+:root[data-palette='ocean']:not([data-theme='dark']) {
+  --color-blue: #2563eb;
+  --color-violet: #7c3aed;
+  --color-cyan: #0891b2;
+  --color-blue-text: #1d4ed8;
+  --color-violet-text: #6d28d9;
+  --color-cyan-text: #0e7490;
+  --color-button-glow: rgb(37 99 235 / 0.4);
+}
+/* Dark ocean = the dark theme above, so no override needed */
+
+:root[data-palette='emerald']:not([data-theme='dark']) {
+  --color-blue: #047857;
+  --color-violet: #0f766e;
+  --color-cyan: #65a30d;
+  --color-blue-text: #047857;
+  --color-violet-text: #0f766e;
+  --color-cyan-text: #4d7c0f;
+  --color-button-glow: rgb(4 120 87 / 0.4);
+}
+:root[data-palette='emerald'][data-theme='dark'] {
+  --color-blue: #059669;
+  --color-violet: #0d9488;
+  --color-cyan: #a3e635;
+  --color-blue-text: #6ee7b7;
+  --color-violet-text: #5eead4;
+  --color-cyan-text: #bef264;
+  --color-button-glow: rgb(16 185 129 / 0.5);
+}
+
+:root[data-palette='sunset']:not([data-theme='dark']) {
+  --color-blue: #c2410c;
+  --color-violet: #be123c;
+  --color-cyan: #d97706;
+  --color-blue-text: #c2410c;
+  --color-violet-text: #be123c;
+  --color-cyan-text: #b45309;
+  --color-button-glow: rgb(194 65 12 / 0.4);
+}
+:root[data-palette='sunset'][data-theme='dark'] {
+  --color-blue: #ea580c;
+  --color-violet: #e11d48;
+  --color-cyan: #f59e0b;
+  --color-blue-text: #fdba74;
+  --color-violet-text: #fda4af;
+  --color-cyan-text: #fcd34d;
+  --color-button-glow: rgb(234 88 12 / 0.5);
+}
+
+:root[data-palette='royal']:not([data-theme='dark']) {
+  --color-blue: #4338ca;
+  --color-violet: #9333ea;
+  --color-cyan: #db2777;
+  --color-blue-text: #4338ca;
+  --color-violet-text: #7e22ce;
+  --color-cyan-text: #be185d;
+  --color-button-glow: rgb(67 56 202 / 0.4);
+}
+:root[data-palette='royal'][data-theme='dark'] {
+  --color-blue: #6366f1;
+  --color-violet: #a855f7;
+  --color-cyan: #ec4899;
+  --color-blue-text: #a5b4fc;
+  --color-violet-text: #d8b4fe;
+  --color-cyan-text: #f9a8d4;
+  --color-button-glow: rgb(99 102 241 / 0.55);
+}
+
 /* ========== Base ========== */
 @layer base {
   html {
@@ -115,15 +187,12 @@
     }
   }
 
-  /* Gradient text for key words in headings (greys in B&W mode) */
+  /* Gradient text for key words in headings — follows the palette (greys in mono light mode) */
   .text-gradient {
-    background: linear-gradient(100deg, #000000 0%, #3f3f46 55%, #737373 100%);
+    background: linear-gradient(100deg, var(--color-blue-text) 0%, var(--color-violet-text) 55%, var(--color-cyan-text) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-  }
-  [data-theme='dark'] .text-gradient {
-    background-image: linear-gradient(100deg, #7ea0ff 0%, #a78bfa 45%, #22d3ee 100%);
   }
 
   /* Glass card: used selectively, not everywhere */
