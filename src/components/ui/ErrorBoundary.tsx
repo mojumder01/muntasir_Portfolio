@@ -7,6 +7,7 @@
 
 import { Component, type ErrorInfo, type ReactNode } from 'react';
 import { SOCIAL_LINKS } from '../../config/site-config';
+import { toSafeExternalUrl } from '../../lib/contact-channels';
 
 interface ErrorBoundaryProps {
   children: ReactNode;
@@ -31,18 +32,23 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
   render() {
     if (!this.state.hasError) return this.props.children;
 
+    // Same https-only check as every other link; hidden when not set
+    const githubUrl = toSafeExternalUrl(SOCIAL_LINKS.github);
+
     return (
       <main className="grid min-h-screen place-items-center bg-ink px-4 text-center text-text">
         <div className="max-w-md">
           <h1 className="text-2xl font-semibold">This page didn’t load properly.</h1>
-          <p className="mt-3 text-muted">Please refresh the page. If it keeps happening, you can still reach me on GitHub.</p>
+          <p className="mt-3 text-muted">Please refresh the page.{githubUrl && ' If it keeps happening, you can still reach me on GitHub.'}</p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <button type="button" onClick={() => window.location.reload()} className="min-h-11 rounded-xl bg-blue px-5 font-semibold text-white">
               Reload page
             </button>
-            <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center rounded-xl border border-line-strong px-5 font-semibold">
-              Open GitHub
-            </a>
+            {githubUrl && (
+              <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center rounded-xl border border-line-strong px-5 font-semibold">
+                Open GitHub
+              </a>
+            )}
           </div>
         </div>
       </main>

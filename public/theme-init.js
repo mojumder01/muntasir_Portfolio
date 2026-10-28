@@ -15,4 +15,10 @@
   }
   var theme = savedTheme === 'dark' ? 'dark' : 'light';
   document.documentElement.setAttribute('data-theme', theme);
+
+  // Mobile browser bar color — must match BROWSER_BAR_COLORS in src/hooks/use-theme.ts
+  if (theme === 'dark') {
+    var themeColorMeta = document.querySelector('meta[name="theme-color"]');
+    if (themeColorMeta) themeColorMeta.setAttribute('content', '#07080c');
+  }
 })();

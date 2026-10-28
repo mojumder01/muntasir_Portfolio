@@ -11,7 +11,7 @@ import { useCallback, useState } from 'react';
 export type Theme = 'light' | 'dark';
 
 const THEME_STORAGE_KEY = 'portfolio-theme'; // must match public/theme-init.js
-const BROWSER_BAR_COLORS: Record<Theme, string> = { light: '#ffffff', dark: '#07080c' };
+const BROWSER_BAR_COLORS: Record<Theme, string> = { light: '#ffffff', dark: '#07080c' }; // dark also in public/theme-init.js
 
 /* ---------- 2. Helpers ---------- */
 function readCurrentTheme(): Theme {
