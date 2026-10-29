@@ -1,5 +1,27 @@
 [
   {
+    "id": "zorvyn-admin",
+    "title": "Zorvyn Admin — E-commerce Admin Dashboard",
+    "serviceId": "website",
+    "summary": "An admin panel for the Zorvyn store: sales dashboard and charts, an order workflow with printable invoices, product and stock management, customers, reports with CSV export and settings.",
+    "tools": ["React", "TypeScript", "Tailwind CSS", "SVG charts", "GitHub Pages"],
+    "mockup": "dashboard",
+    "isSample": true,
+    "liveUrl": "https://mojumder01.github.io/zorvyn-admin/",
+    "sourceUrl": "https://github.com/mojumder01/zorvyn-admin",
+    "images": [
+      { "src": "/media/zorvyn-admin-dashboard.jpg", "alt": "Zorvyn Admin dashboard with revenue, orders and average order cards, a revenue-per-day bar chart and orders by status" },
+      { "src": "/media/zorvyn-admin-order.jpg", "alt": "Zorvyn Admin order page with items, totals, customer, delivery and payment details, a timeline and status buttons" }
+    ],
+    "caseStudy": {
+      "overview": "The back office for the Zorvyn demo store: everything a small online shop owner needs to run daily orders, stock and sales in one place.",
+      "problem": "Small Bangladeshi shops often track orders in Facebook messages and stock in notebooks or spreadsheets, so orders get missed, popular sizes run out and nobody knows which products actually sell.",
+      "solution": "A fast admin dashboard with sales numbers for any period, a clear order workflow (pending → confirmed → shipped → delivered, or cancelled with stock returned), product and size-level stock management with low-stock alerts, customer history, reports and Excel-ready CSV exports.",
+      "process": ["Mapped the shop owner's daily jobs: confirm orders, ship, restock, check sales", "Generated 90 days of realistic demo orders in taka with Bangladeshi cities and payment methods", "Built the dashboard, order workflow, product form with photo upload and inline stock editing", "Drew accessible charts with hover and keyboard tooltips and a table view", "Tested every flow on phone and desktop in light and dark mode, and published on GitHub Pages"],
+      "outcome": ""
+    }
+  },
+  {
     "id": "tavique-fashion",
     "title": "Tavique Fashion — Luxury Fashion Store",
     "serviceId": "website",
