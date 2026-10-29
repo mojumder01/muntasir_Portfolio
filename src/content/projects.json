@@ -1,5 +1,27 @@
 [
   {
+    "id": "zorvyn-store",
+    "title": "Zorvyn — Sneakers & Denim E-commerce Store",
+    "serviceId": "website",
+    "summary": "A responsive online store with category filters, search, product details with sizes, a saved shopping cart and a cash-on-delivery checkout with Dhaka delivery fees.",
+    "tools": ["React", "TypeScript", "Tailwind CSS", "Vite", "GitHub Pages"],
+    "mockup": "website",
+    "isSample": true,
+    "liveUrl": "https://mojumder01.github.io/Zorvyn/",
+    "sourceUrl": "https://github.com/mojumder01/Zorvyn",
+    "images": [
+      { "src": "/media/zorvyn-home.jpg", "alt": "Zorvyn store home page with a dark hero banner, sneaker and jeans photos" },
+      { "src": "/media/zorvyn-shop.jpg", "alt": "Zorvyn product grid with category filter, sort menu and taka prices" }
+    ],
+    "caseStudy": {
+      "overview": "A demo e-commerce store for a Bangladeshi sneaker and denim brand, built to show a complete shopping flow from browsing to order confirmation.",
+      "problem": "Small fashion sellers often sell only through Facebook posts and inbox messages: customers can't browse sizes and prices easily, and every order needs manual back-and-forth.",
+      "solution": "A fast, mobile-first store: products with sizes and sale prices, a cart that stays saved on the phone, and a checkout that checks the mobile number and adds the right delivery fee for inside or outside Dhaka.",
+      "process": ["Prepared square product photos and a simple product catalogue in taka", "Designed a clean layout with one accent color and a clear path to checkout", "Built filters, search, sorting, size selection and a saved cart in React and TypeScript", "Added a checkout form with Bangladeshi mobile-number validation and delivery fees", "Tested the full flow on phone and desktop and published it on GitHub Pages"],
+      "outcome": ""
+    }
+  },
+  {
     "id": "haatnest-landing",
     "title": "Haatnest — Marketplace Landing Page",
     "serviceId": "landing-page",
