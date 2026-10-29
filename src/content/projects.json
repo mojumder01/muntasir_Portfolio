@@ -1,5 +1,71 @@
 [
   {
+    "id": "tavique-fashion",
+    "title": "Tavique Fashion — Luxury Fashion Store",
+    "serviceId": "website",
+    "summary": "An editorial luxury fashion store with campaign layouts, colour and size options, a size guide, a cart drawer, wishlist and a full demo checkout.",
+    "tools": ["Next.js", "TypeScript", "Tailwind CSS", "Zustand", "GitHub Pages"],
+    "mockup": "website",
+    "isSample": true,
+    "liveUrl": "https://mojumder01.github.io/Tavique/fashion/",
+    "sourceUrl": "https://github.com/mojumder01/Tavique",
+    "images": [
+      { "src": "/media/tavique-fashion-home.jpg", "alt": "Tavique Fashion home page with a large campaign photo and the headline “Designed to be worn with presence”" },
+      { "src": "/media/tavique-fashion-product.jpg", "alt": "Tavique Fashion product page for a belted cotton trench with colour and size options" }
+    ],
+    "caseStudy": {
+      "overview": "The fashion storefront of Tavique, a multi-store e-commerce template, styled as an editorial luxury brand.",
+      "problem": "Premium fashion brands need a store that feels like their lookbook, while still making sizes, stock and checkout clear.",
+      "solution": "A calm, magazine-style layout with Bodoni and Jost type, warm neutrals and campaign sections, backed by URL-synced filters, variant-aware stock, a size guide, wishlist, discount codes and a validated demo checkout.",
+      "process": ["Defined the brand feel: editorial, quiet, premium", "Built the theme, centred header and campaign homepage from a store config file", "Added filters, product gallery with zoom, colour and size variants and a size guide", "Built the cart drawer, discount codes, shipping options and a validated demo checkout", "Tested on phone and desktop and published a static export on GitHub Pages"],
+      "outcome": ""
+    }
+  },
+  {
+    "id": "tavique-electronics",
+    "title": "Tavique Electronics — Gadgets & Tech Store",
+    "serviceId": "website",
+    "summary": "A search-first electronics store with spec details, storage and colour variants, light and dark themes, deals, a cart drawer and a full demo checkout.",
+    "tools": ["Next.js", "TypeScript", "Tailwind CSS", "Zustand", "GitHub Pages"],
+    "mockup": "website",
+    "isSample": true,
+    "liveUrl": "https://mojumder01.github.io/Tavique/electronics/",
+    "sourceUrl": "https://github.com/mojumder01/Tavique",
+    "images": [
+      { "src": "/media/tavique-electronics-home.jpg", "alt": "Tavique Electronics home page with a large search bar and an Arcline One Pro phone spotlight" },
+      { "src": "/media/tavique-electronics-product.jpg", "alt": "Tavique Electronics product page for the Arcline One Pro with colour and storage options" }
+    ],
+    "caseStudy": {
+      "overview": "The electronics storefront of Tavique, built for shoppers who search first and compare specs before they buy.",
+      "problem": "Tech shoppers know what they want and hate digging: they need fast search, clear specs and honest stock and price per option.",
+      "solution": "A clean, technical layout in Geist type with graphite and blue, a search bar with suggestions and popular searches, category navigation, specs on every product, variant-aware pricing and stock, and a light/dark theme.",
+      "process": ["Mapped the shopping flow around search and comparison", "Built the search-first header, category bar and deals sections", "Added product specs, storage and colour variants with their own price and stock", "Added a light and dark theme that remembers the visitor’s choice", "Tested the full checkout on phone and desktop and published on GitHub Pages"],
+      "outcome": ""
+    }
+  },
+  {
+    "id": "tavique-beauty",
+    "title": "Tavique Beauty — Skincare & Makeup Store",
+    "serviceId": "website",
+    "summary": "A soft, refined beauty store with shop-by-concern tiles, a routine builder, shade options, journal content and a full demo checkout.",
+    "tools": ["Next.js", "TypeScript", "Tailwind CSS", "Zustand", "GitHub Pages"],
+    "mockup": "website",
+    "isSample": true,
+    "liveUrl": "https://mojumder01.github.io/Tavique/beauty/",
+    "sourceUrl": "https://github.com/mojumder01/Tavique",
+    "images": [
+      { "src": "/media/tavique-beauty-home.jpg", "alt": "Tavique Beauty home page with two Multi-Stick lipsticks and the headline “Clean colour, your way.”" },
+      { "src": "/media/tavique-beauty-product.jpg", "alt": "Tavique Beauty product page for the Multi-Stick cheek and lip colour with shade options" }
+    ],
+    "caseStudy": {
+      "overview": "The beauty storefront of Tavique, designed to help shoppers find the right products for their skin and build a routine.",
+      "problem": "Beauty shoppers shop by concern (dryness, dullness, fine lines), not by category, and need help choosing products that work together.",
+      "solution": "A soft cream-and-blush design in Newsreader and Figtree type with shop-by-concern tiles, a routine builder, shade options on products, journal articles and the same fast cart and checkout as the other stores.",
+      "process": ["Organised the catalogue by skin concern as well as category", "Designed a soft, refined theme with its own header and product cards", "Built concern tiles, a routine builder and journal content", "Added shade options, reviews and suggested products on every product page", "Tested on phone and desktop and published on GitHub Pages"],
+      "outcome": ""
+    }
+  },
+  {
     "id": "zorvyn-store",
     "title": "Zorvyn — Fashion E-commerce Store",
     "serviceId": "website",
