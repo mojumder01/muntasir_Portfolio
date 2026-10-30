@@ -3,6 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "description": "Digital services portfolio for Md Muntasir Mamun Mojumder — websites, landing pages, Excel dashboards, Excel automation and AI workflows.",
+  "license": "UNLICENSED",
   "type": "module",
   "scripts": {
     "dev": "vite",

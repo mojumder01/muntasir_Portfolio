@@ -183,3 +183,7 @@ src/
 | Form shows "Direct messaging is being set up" | Add your email/WhatsApp in Site settings or set `VITE_FORMSPREE_FORM_ID` |
 | Deploy failed with "Found N problem(s) in src/content" | Open the failed run in the Actions tab — it lists each file → field → fix. Or run `npm run check-content` |
 | Old version still showing | Hard-refresh (Ctrl + F5); deploys take 1–2 minutes |
+
+## Licence
+
+© 2026 Md Muntasir Mamun Mojumder. All rights reserved. This code is public for viewing only — copying, reuse, redistribution or resale is not allowed without written permission. See [LICENSE](LICENSE).
