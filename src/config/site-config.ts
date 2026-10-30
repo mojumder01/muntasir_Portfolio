@@ -8,9 +8,21 @@
 import siteJson from '../content/site.json';
 import type { SkillGroup } from '../types/content';
 import { toPublicPath } from '../lib/public-path';
+import { isOn, onlyOn } from '../lib/visibility';
+import contentRules from './content-rules.json';
 
 /* ---------- 0. File shape ---------- */
 type SocialId = 'github' | 'linkedin' | 'fiverr' | 'upwork';
+
+/** Sections that can be switched on/off in the admin (Site settings → Layout). */
+export type SectionKey = 'services' | 'portfolio' | 'process' | 'about' | 'trust' | 'pricing' | 'contact';
+export type HeroStyle = 'classic' | 'simple' | 'modern' | 'premium' | 'unique';
+
+interface RawListItem {
+  title: string;
+  description: string;
+  status?: string;
+}
 
 /**
  * Raw site.json. The admin leaves out fields that are saved empty or switched off,
@@ -33,7 +45,10 @@ interface RawSite {
   contact?: { email?: string | null; whatsappNumber?: string | number | null };
   social?: Partial<Record<SocialId, string | null>>;
   about: { heading: string; paragraphs: string[]; workingPrinciples?: string[] };
-  skillGroups: SkillGroup[];
+  layout?: { heroStyle?: string; sections?: Partial<Record<SectionKey, string>> };
+  skillGroups: Array<SkillGroup & { status?: string }>;
+  process?: { steps?: RawListItem[] };
+  promises?: RawListItem[];
   chat: {
     isEnabled?: boolean;
     title: string;
@@ -73,7 +88,7 @@ export const SOCIAL_LINKS: Record<SocialId, string> = {
 export const ABOUT = { ...site.about, workingPrinciples: site.about.workingPrinciples ?? [] };
 
 /* ---------- 5. Skills (grouped badges, no fake % meters) ---------- */
-export const SKILL_GROUPS: SkillGroup[] = site.skillGroups;
+export const SKILL_GROUPS: SkillGroup[] = onlyOn(site.skillGroups).map(({ title, skills }) => ({ title, skills }));
 
 /* ---------- 6. Floating chat button (Messenger / WhatsApp / Telegram / Email) ---------- */
 export const CHAT = {
@@ -89,3 +104,23 @@ export const CHAT = {
 /* ---------- 7. Integrations ---------- */
 // Google Sheet: Apps Script web app URL (see google-apps-script/). Public by design — not a secret.
 export const INTEGRATIONS = { googleSheetWebAppUrl: site.integrations?.googleSheetWebAppUrl ?? '' };
+
+/* ---------- 8. Layout: hero style and section on/off ---------- */
+const HERO_STYLES = contentRules.heroStyles as HeroStyle[];
+const heroStyle = site.layout?.heroStyle as HeroStyle | undefined;
+
+export const LAYOUT = {
+  // Unknown or missing style → the original "classic" hero
+  heroStyle: heroStyle && HERO_STYLES.includes(heroStyle) ? heroStyle : 'classic',
+  /** A section shows unless the admin switched it "off". */
+  isSectionOn: (section: SectionKey) => site.layout?.sections?.[section] !== 'off',
+};
+
+/* ---------- 9. Process steps and "What you can expect" promises ---------- */
+// Only titles and descriptions are editable. `position` is the item's place in the admin list,
+// so each item keeps its own icon and number even when an earlier one is switched off.
+function visibleListItems(items: RawListItem[] = []) {
+  return items.map(({ title, description, status }, position) => ({ title, description, status, position })).filter(isOn);
+}
+export const PROCESS_STEPS = visibleListItems(site.process?.steps);
+export const PROMISES = visibleListItems(site.promises);

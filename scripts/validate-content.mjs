@@ -66,6 +66,21 @@ function createChecker(fileName) {
     oneOf(value, allowed, path) {
       if (!allowed.includes(value)) add(path, `"${value}" is not allowed. Use one of: ${allowed.join(', ')}`);
     },
+    // On/Off switch; missing counts as "on"
+    status(value, path) {
+      if (value !== undefined && !RULES.statuses.includes(value)) add(path, `"${value}" is not allowed. Use "on" or "off"`);
+    },
+    // Title + description items with an on/off switch (process steps, promises)
+    titledList(value, path) {
+      if (value === undefined) return; // optional: the section uses its built-in text
+      if (!Array.isArray(value)) return add(path, 'should be a list of { title, description }');
+      value.forEach((item, index) => {
+        const itemPath = [...path, itemLabel(item, index)];
+        this.status(item?.status, [...itemPath, 'status']);
+        this.text(item?.title, [...itemPath, 'title']);
+        this.text(item?.description, [...itemPath, 'description']);
+      });
+    },
     httpsUrl(value, path) {
       if (value === undefined || value === null || value === '') return; // optional
       if (typeof value !== 'string' || !/^https:\/\/\S+\.\S+/.test(value)) add(path, 'should be a full link starting with https://, or empty');
@@ -156,8 +171,15 @@ function checkSite(site, problems) {
     );
   }
 
+  const layout = site.layout ?? {};
+  if (layout.heroStyle !== undefined) check.oneOf(layout.heroStyle, RULES.heroStyles, ['layout', 'heroStyle']);
+  Object.entries(layout.sections ?? {}).forEach(([section, status]) => check.status(status, ['layout', 'sections', section]));
+  check.titledList(site.process?.steps, ['process', 'steps']);
+  check.titledList(site.promises, ['promises']);
+
   if (!Array.isArray(site.skillGroups)) check.add(['skillGroups'], 'should be a list of groups');
   else site.skillGroups.forEach((group, index) => {
+    check.status(group?.status, ['skillGroups', itemLabel(group, index), 'status']);
     check.text(group?.title, ['skillGroups', itemLabel(group, index), 'title']);
     check.textList(group?.skills, ['skillGroups', itemLabel(group, index), 'skills']);
   });
@@ -170,6 +192,7 @@ function checkServices(services, problems) {
 
   services.forEach((service, index) => {
     const path = [itemLabel(service, index)];
+    check.status(service.status, [...path, 'status']);
     if (typeof service.id !== 'string' || !ID_PATTERN.test(service.id)) check.add([...path, 'id'], 'use lowercase letters, numbers and dashes, e.g. "excel-dashboard"');
     ['title', 'shortTitle', 'description', 'ctaLabel', 'nextStepTip'].forEach((key) => check.text(service[key], [...path, key]));
     check.textList(service.deliverables, [...path, 'deliverables']);
@@ -186,6 +209,7 @@ function checkProjects(projects, serviceIds, problems) {
 
   projects.forEach((project, index) => {
     const path = [itemLabel(project, index)];
+    check.status(project.status, [...path, 'status']);
     if (typeof project.id !== 'string' || !ID_PATTERN.test(project.id)) check.add([...path, 'id'], 'use lowercase letters, numbers and dashes, e.g. "sales-dashboard"');
     ['title', 'summary'].forEach((key) => check.text(project[key], [...path, key]));
     if (!serviceIds.includes(project.serviceId)) check.add([...path, 'serviceId'], `"${project.serviceId}" doesn't match any service id. Use one of: ${serviceIds.join(', ')}`);
@@ -216,6 +240,7 @@ function checkPricing(pricing, problems) {
 
   (pricing.tiers ?? []).forEach((tier, index) => {
     const path = ['tiers', itemLabel(tier, index)];
+    check.status(tier.status, [...path, 'status']);
     ['id', 'name', 'tagline', 'scope', 'ctaLabel'].forEach((key) => check.text(tier[key], [...path, key]));
     check.textList(tier.deliverables, [...path, 'deliverables']);
     check.bool(tier.isFeatured, [...path, 'isFeatured']);
@@ -243,6 +268,7 @@ function checkTestimonials(testimonials, problems) {
   if (!Array.isArray(testimonials)) return problems.push('testimonials.json: should be a list ([] when you have none yet)');
   testimonials.forEach((testimonial, index) => {
     const path = [itemLabel(testimonial, index)];
+    check.status(testimonial.status, [...path, 'status']);
     ['quote', 'clientName', 'clientRole'].forEach((key) => check.text(testimonial[key], [...path, key]));
     check.httpsUrl(testimonial.sourceUrl, [...path, 'sourceUrl']);
   });

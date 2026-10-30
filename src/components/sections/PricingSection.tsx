@@ -104,6 +104,8 @@ export function PricingSection() {
   const [offerPackage, setOfferPackage] = useState<string | null>(null);
   const cardCount = PRICING_TIERS.length + (NEGOTIATION.isEnabled ? 1 : 0);
   const desktopColumns = cardCount >= 4 ? 'lg:grid-cols-4' : 'lg:grid-cols-3';
+  // Every tier and the offer card switched off → hide the whole section
+  if (cardCount === 0) return null;
 
   return (
     <section id="pricing" aria-labelledby="pricing-title" className="py-24 sm:py-28">

@@ -245,6 +245,17 @@
 .animate-flow-dash { animation: flow-dash 1.2s linear infinite; }
 .animate-scroll-dot { animation: scroll-dot 1.8s ease-in-out infinite; }
 
+/* Hero styles (admin: Site settings → Layout → Hero style) */
+@keyframes hero-marquee {
+  to { transform: translateX(-50%); }
+}
+@keyframes hero-spin {
+  to { transform: rotate(360deg); }
+}
+.animate-hero-marquee { animation: hero-marquee 40s linear infinite; }
+.animate-hero-spin { animation: hero-spin 14s linear infinite; }
+.animate-hero-spin-slow { animation: hero-spin 40s linear infinite reverse; }
+
 /* ========== Respect "reduce motion" system setting ========== */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

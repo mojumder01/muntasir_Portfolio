@@ -4,18 +4,33 @@
 
 ## সবচেয়ে সহজ উপায়: Admin panel (Pages CMS)
 
-1. যাও **https://app.pagescms.org** → **Sign in with GitHub**
-2. তোমার repo (`mojumder01.github.io`) বেছে নাও
+1. যাও **https://app.pagescms.org/mojumder01/muntasir_Portfolio/main** → **Sign in with GitHub**
+2. (না খুললে https://app.pagescms.org থেকে `muntasir_Portfolio` repo বেছে নাও)
 3. বাম পাশের মেনু থেকে **Site settings / Services / Projects / Pricing …** খোলো
 4. ফর্মে বদলাও → **Save** → ১–২ মিনিটে live সাইট আপডেট হবে
 
 Admin panel-এ JSON-এর comma বা quote নিয়ে চিন্তা করতে হয় না — ফর্মই সব ঠিক রাখে।
 
+## হিরো স্টাইল আর On / Off
+
+**Site settings → Layout**
+- **Hero style** — সাইটের প্রথম স্ক্রিন। ৫টা আছে, যেকোনো সময় বদলাও, বাকিগুলো তৈরি থাকে:
+  - `classic` — হেডলাইন + অ্যানিমেটেড ইলাস্ট্রেশন (আগেরটা)
+  - `simple` — মাঝখানে শান্ত, পরিষ্কার লেখা
+  - `modern` — সংখ্যা + ছবি আর project-এর bento grid
+  - `premium` — বড় editorial হেডলাইন, ঘুরন্ত রিংয়ে ছবি, নিচে tools-এর চলন্ত লাইন
+  - `unique` — বদলাতে থাকা শব্দ, মাউসের সাথে আলো, live build log
+- **Sections on/off** — কোনো সেকশন **Off** করলে সেটা আর মেনুর লিংক লুকিয়ে যায়, লেখা মুছে যায় না।
+
+**প্রতিটা আইটেমে "Show on site"** (Services, Projects, Pricing tiers, Testimonials, Skill groups, Process steps, What you can expect):
+**On** = দেখাবে, **Off** = লুকানো কিন্তু রাখা থাকবে, পরে আবার On করলেই ফিরে আসবে।
+সব আইটেম Off করলে পুরো সেকশনটাই নিজে থেকে লুকিয়ে যায়।
+
 ## কোন ফাইলে কী আছে
 
 | File | Admin-এ নাম | কী বদলায় |
 |---|---|---|
-| `site.json` | Site settings | নাম, পরিচয়, email, WhatsApp, social link, About লেখা, skills |
+| `site.json` | Site settings | নাম, পরিচয়, email, WhatsApp, social link, About লেখা, skills, **হিরো স্টাইল, সেকশন on/off, process steps, promises** |
 | `services.json` | Services | ৬টা service card |
 | `projects.json` | Projects | Portfolio + case study |
 | `pricing.json` | Pricing | দাম (Starter/Professional/Custom) আর **Negotiation** অপশন |

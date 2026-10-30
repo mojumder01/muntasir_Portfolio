@@ -90,23 +90,25 @@ export function AboutSection() {
             </ul>
           </Reveal>
 
-          <Reveal delay={0.15}>
-            <h3 className="mt-12 text-lg font-semibold">Skills & tools</h3>
-            <div className="mt-5 grid gap-6 sm:grid-cols-2">
-              {SKILL_GROUPS.map((skillGroup) => (
-                <div key={skillGroup.title}>
-                  <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted">{skillGroup.title}</p>
-                  <ul className="mt-3 flex flex-wrap gap-2">
-                    {skillGroup.skills.map((skill) => (
-                      <li key={skill} className="rounded-lg border border-line-strong bg-fg/[0.03] px-3 py-1.5 text-[13px] text-text/90">
-                        {skill}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </Reveal>
+          {SKILL_GROUPS.length > 0 && (
+            <Reveal delay={0.15}>
+              <h3 className="mt-12 text-lg font-semibold">Skills & tools</h3>
+              <div className="mt-5 grid gap-6 sm:grid-cols-2">
+                {SKILL_GROUPS.map((skillGroup) => (
+                  <div key={skillGroup.title}>
+                    <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted">{skillGroup.title}</p>
+                    <ul className="mt-3 flex flex-wrap gap-2">
+                      {skillGroup.skills.map((skill) => (
+                        <li key={skill} className="rounded-lg border border-line-strong bg-fg/[0.03] px-3 py-1.5 text-[13px] text-text/90">
+                          {skill}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          )}
         </div>
       </div>
     </section>

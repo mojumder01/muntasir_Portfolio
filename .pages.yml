@@ -52,6 +52,34 @@ content:
             description: Visitors can still switch with the moon/sun button
             options:
               values: [light, dark]
+      - name: layout
+        label: Layout (hero style and sections on/off)
+        type: object
+        fields:
+          - name: heroStyle
+            label: Hero style
+            type: select
+            default: classic
+            description: 'The first screen of the site. Switch any time — the other styles stay ready'
+            options:
+              values:
+                - { value: classic, label: 'Classic — headline + animated illustration (original)' }
+                - { value: simple, label: 'Simple — calm, centered, no illustration' }
+                - { value: modern, label: 'Modern — numbers + bento grid with photo and projects' }
+                - { value: premium, label: 'Premium — editorial headline, portrait ring, tools strip' }
+                - { value: unique, label: 'Unique — changing words, spotlight and a live build log' }
+          - name: sections
+            label: Sections on/off
+            type: object
+            description: Off hides the section and its menu link; its content stays saved
+            fields:
+              - { name: services, label: Services, type: select, default: 'on', options: { values: [{ value: 'on', label: 'On — show' }, { value: 'off', label: 'Off — hide' }] } }
+              - { name: portfolio, label: Portfolio, type: select, default: 'on', options: { values: [{ value: 'on', label: 'On — show' }, { value: 'off', label: 'Off — hide' }] } }
+              - { name: process, label: Process, type: select, default: 'on', options: { values: [{ value: 'on', label: 'On — show' }, { value: 'off', label: 'Off — hide' }] } }
+              - { name: about, label: About, type: select, default: 'on', options: { values: [{ value: 'on', label: 'On — show' }, { value: 'off', label: 'Off — hide' }] } }
+              - { name: trust, label: Reviews / What you can expect, type: select, default: 'on', options: { values: [{ value: 'on', label: 'On — show' }, { value: 'off', label: 'Off — hide' }] } }
+              - { name: pricing, label: Pricing, type: select, default: 'on', options: { values: [{ value: 'on', label: 'On — show' }, { value: 'off', label: 'Off — hide' }] } }
+              - { name: contact, label: Contact, type: select, default: 'on', options: { values: [{ value: 'on', label: 'On — show' }, { value: 'off', label: 'Off — hide' }] } }
       - name: contact
         label: Contact
         type: object
@@ -79,8 +107,30 @@ content:
         type: object
         list: true
         fields:
+          - { name: status, label: Show on site, type: select, default: 'on', description: 'On = shown · Off = hidden but kept, switch it back on any time', options: { values: [{ value: 'on', label: 'On — show' }, { value: 'off', label: 'Off — hide' }] } }
           - { name: title, label: Group title, type: string, required: true }
           - { name: skills, label: Skills, type: string, list: true }
+      - name: process
+        label: Process steps
+        type: object
+        fields:
+          - name: steps
+            label: Steps
+            type: object
+            list: true
+            description: Numbers are added automatically. Icons follow the order (Discover, Plan, Build, Deliver)
+            fields:
+              - { name: status, label: Show on site, type: select, default: 'on', description: 'On = shown · Off = hidden but kept, switch it back on any time', options: { values: [{ value: 'on', label: 'On — show' }, { value: 'off', label: 'Off — hide' }] } }
+              - { name: title, label: Title, type: string, required: true }
+              - { name: description, label: Description, type: text, required: true }
+      - name: promises
+        label: What you can expect (shown while there are no reviews)
+        type: object
+        list: true
+        fields:
+          - { name: status, label: Show on site, type: select, default: 'on', description: 'On = shown · Off = hidden but kept, switch it back on any time', options: { values: [{ value: 'on', label: 'On — show' }, { value: 'off', label: 'Off — hide' }] } }
+          - { name: title, label: Title, type: string, required: true }
+          - { name: description, label: Description, type: text, required: true }
       - name: chat
         label: Floating chat button
         type: object
@@ -106,6 +156,7 @@ content:
     format: json
     list: true
     fields:
+      - { name: status, label: Show on site, type: select, default: 'on', description: 'On = shown · Off = hidden but kept, switch it back on any time', options: { values: [{ value: 'on', label: 'On — show' }, { value: 'off', label: 'Off — hide' }] } }
       - { name: id, label: Id, type: string, required: true, description: 'Lowercase letters, numbers and dashes, e.g. excel-dashboard. Projects link to this id' }
       - { name: title, label: Title, type: string, required: true }
       - { name: shortTitle, label: Short title, type: string, required: true, description: Used in filters and form choices }
@@ -132,6 +183,7 @@ content:
     format: json
     list: true
     fields:
+      - { name: status, label: Show on site, type: select, default: 'on', description: 'On = shown · Off = hidden but kept, switch it back on any time', options: { values: [{ value: 'on', label: 'On — show' }, { value: 'off', label: 'Off — hide' }] } }
       - { name: id, label: Id, type: string, required: true, description: 'Lowercase letters, numbers and dashes, e.g. sales-dashboard' }
       - { name: title, label: Title, type: string, required: true }
       - name: serviceId
@@ -179,6 +231,7 @@ content:
         type: object
         list: true
         fields:
+          - { name: status, label: Show on site, type: select, default: 'on', description: 'On = shown · Off = hidden but kept, switch it back on any time', options: { values: [{ value: 'on', label: 'On — show' }, { value: 'off', label: 'Off — hide' }] } }
           - { name: id, label: Id, type: string, required: true, description: 'Lowercase, e.g. starter' }
           - { name: name, label: Name, type: string, required: true }
           - { name: tagline, label: Tagline, type: string, required: true }
@@ -209,6 +262,7 @@ content:
     list: true
     description: Real client reviews only. While empty, "What you can expect" is shown instead
     fields:
+      - { name: status, label: Show on site, type: select, default: 'on', description: 'On = shown · Off = hidden but kept, switch it back on any time', options: { values: [{ value: 'on', label: 'On — show' }, { value: 'off', label: 'Off — hide' }] } }
       - { name: quote, label: Quote, type: text, required: true }
       - { name: clientName, label: Client name, type: string, required: true }
       - { name: clientRole, label: Client role / company, type: string, required: true }

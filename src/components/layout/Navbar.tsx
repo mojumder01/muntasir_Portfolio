@@ -8,21 +8,22 @@
 import { AnimatePresence, motion } from 'motion/react';
 import { Menu, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
-import { SITE } from '../../config/site-config';
+import { LAYOUT, SITE, type SectionKey } from '../../config/site-config';
 import { useInquiry } from '../../context/inquiry-context';
 import { useActiveSection } from '../../hooks/use-active-section';
 import { Button } from '../ui/Button';
 import { ThemeToggle } from '../ui/ThemeToggle';
 
 /* ---------- 2. Settings ---------- */
+// Links to sections switched off in the admin are left out
 const NAV_LINKS = [
   { sectionId: 'home', label: 'Home' },
-  { sectionId: 'services', label: 'Services' },
-  { sectionId: 'portfolio', label: 'Portfolio' },
-  { sectionId: 'process', label: 'Process' },
-  { sectionId: 'about', label: 'About' },
-  { sectionId: 'contact', label: 'Contact' },
-];
+  { sectionId: 'services', label: 'Services', section: 'services' },
+  { sectionId: 'portfolio', label: 'Portfolio', section: 'portfolio' },
+  { sectionId: 'process', label: 'Process', section: 'process' },
+  { sectionId: 'about', label: 'About', section: 'about' },
+  { sectionId: 'contact', label: 'Contact', section: 'contact' },
+].filter((link) => !link.section || LAYOUT.isSectionOn(link.section as SectionKey));
 const SECTION_IDS = NAV_LINKS.map((link) => link.sectionId);
 const SCROLLED_THRESHOLD_PX = 12; // add the navbar background after this much scroll
 

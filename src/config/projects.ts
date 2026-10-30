@@ -7,12 +7,14 @@
 
 import projectsJson from '../content/projects.json';
 import { toPublicPath } from '../lib/public-path';
+import { onlyOn } from '../lib/visibility';
 import type { MockupKind, Project } from '../types/content';
 
 /** Raw shape in the JSON file; optional fields may be missing after admin edits (empty or switched off). */
 type RawProject = Omit<Project, 'images' | 'liveUrl' | 'sourceUrl' | 'mockup' | 'caseStudy' | 'isSample'> & {
   mockup: string;
   isSample?: boolean;
+  status?: string;
   liveUrl?: string;
   sourceUrl?: string;
   images?: Array<{ src?: string; alt?: string }>;
@@ -20,7 +22,8 @@ type RawProject = Omit<Project, 'images' | 'liveUrl' | 'sourceUrl' | 'mockup' | 
 };
 
 // The JSON's own shape changes with admin edits, so it isn't used as the type (checked by scripts/validate-content.mjs)
-export const PROJECTS: Project[] = (projectsJson as unknown as RawProject[]).map((project) => ({
+// Projects switched off in the admin are left out
+export const PROJECTS: Project[] = onlyOn(projectsJson as unknown as RawProject[]).map(({ status: _status, ...project }) => ({
   ...project,
   mockup: project.mockup as MockupKind, // checked by scripts/validate-content.mjs
   isSample: project.isSample ?? false,

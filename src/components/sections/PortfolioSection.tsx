@@ -71,6 +71,8 @@ export function PortfolioSection() {
 
   const visibleProjects = activeFilterId === ALL_FILTER_ID ? PROJECTS : PROJECTS.filter((project) => project.serviceId === activeFilterId);
 
+  if (PROJECTS.length === 0) return null; // every project switched off
+
   return (
     <section id="portfolio" aria-labelledby="portfolio-title" className="py-24 sm:py-28">
       <div className="page-container">
