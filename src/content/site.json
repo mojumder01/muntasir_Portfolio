@@ -15,7 +15,7 @@
     "defaultTheme": "light"
   },
   "layout": {
-    "heroStyle": "simple",
+    "heroStyle": "unique",
     "sections": {
       "services": "on",
       "portfolio": "on",
