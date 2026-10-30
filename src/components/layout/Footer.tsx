@@ -3,15 +3,18 @@
 // Brand line, quick links, profile links and copyright year.
 // =============================================================
 
-import { SITE } from '../../config/site-config';
+import { LAYOUT, SITE } from '../../config/site-config';
 import { getActiveSocialLinks } from '../../lib/contact-channels';
 
-const FOOTER_LINKS = [
-  { href: '#services', label: 'Services' },
-  { href: '#portfolio', label: 'Portfolio' },
-  { href: '#pricing', label: 'Pricing' },
-  { href: '#contact', label: 'Contact' },
-];
+// Links to sections switched off in the admin are left out
+const FOOTER_LINKS = (
+  [
+    { href: '#services', label: 'Services', section: 'services' },
+    { href: '#portfolio', label: 'Portfolio', section: 'portfolio' },
+    { href: '#pricing', label: 'Pricing', section: 'pricing' },
+    { href: '#contact', label: 'Contact', section: 'contact' },
+  ] as const
+).filter((link) => LAYOUT.isSectionOn(link.section));
 
 export function Footer() {
   const socialLinks = getActiveSocialLinks();

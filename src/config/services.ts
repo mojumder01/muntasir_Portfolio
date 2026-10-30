@@ -21,6 +21,7 @@ import {
 } from 'lucide-react';
 import servicesJson from '../content/services.json';
 import type { AccentColor, Service } from '../types/content';
+import { isOn } from '../lib/visibility';
 
 /* ---------- 1. Icon names usable in services.json ---------- */
 const SERVICE_ICONS: Record<string, LucideIcon> = {
@@ -40,13 +41,21 @@ const SERVICE_ICONS: Record<string, LucideIcon> = {
 const FALLBACK_ICON = Sparkles; // used if an unknown icon name slips through
 
 /* ---------- 2. Services ---------- */
-export const SERVICES: Service[] = servicesJson.map((service) => ({
+type RawService = Omit<Service, 'icon' | 'accent'> & { icon: string; accent: string; status?: string };
+
+/** Every service, including ones switched off — projects still need their names. */
+const ALL_SERVICES: Service[] = (servicesJson as RawService[]).map(({ status: _status, ...service }) => ({
   ...service,
   icon: SERVICE_ICONS[service.icon] ?? FALLBACK_ICON,
   accent: service.accent as AccentColor, // checked by scripts/validate-content.mjs
 }));
 
-/** Find a service by id. Returns undefined for unknown ids instead of crashing. */
+const SWITCHED_OFF_IDS = new Set((servicesJson as RawService[]).filter((service) => !isOn(service)).map((service) => service.id));
+
+/** Services switched on in the admin: shown in the services section, filters and forms. */
+export const SERVICES: Service[] = ALL_SERVICES.filter((service) => !SWITCHED_OFF_IDS.has(service.id));
+
+/** Find a service by id (switched-off ones too). Returns undefined for unknown ids instead of crashing. */
 export function findServiceById(serviceId: string): Service | undefined {
-  return SERVICES.find((service) => service.id === serviceId);
+  return ALL_SERVICES.find((service) => service.id === serviceId);
 }

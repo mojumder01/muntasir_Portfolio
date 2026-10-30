@@ -5,8 +5,8 @@
 // plus a link to public work on GitHub — never invented reviews.
 // =============================================================
 
-import { ArrowUpRight, Clock, FileText, MessagesSquare, Quote, ShieldCheck } from 'lucide-react';
-import { SOCIAL_LINKS } from '../../config/site-config';
+import { ArrowUpRight, Clock, FileText, MessagesSquare, Quote, ShieldCheck, Sparkles } from 'lucide-react';
+import { PROMISES, SOCIAL_LINKS } from '../../config/site-config';
 import { TESTIMONIALS } from '../../config/testimonials';
 import { toSafeExternalUrl } from '../../lib/contact-channels';
 import { GithubIcon } from '../ui/BrandIcons';
@@ -14,12 +14,9 @@ import { RevealGroup, RevealItem } from '../ui/Reveal';
 import { SectionHeading } from '../ui/SectionHeading';
 
 /* ---------- 1. Content ---------- */
-const COLLABORATION_PROMISES = [
-  { title: 'Clear communication', description: 'Replies in plain language, regular progress updates and no disappearing mid-project.', icon: MessagesSquare },
-  { title: 'Defined deliverables', description: 'You get a written list of exactly what will be delivered before any work starts.', icon: FileText },
-  { title: 'Transparent scoping', description: 'Price and timeline are agreed upfront. Changes are discussed before they cost you anything.', icon: ShieldCheck },
-  { title: 'Reliable delivery', description: 'Realistic deadlines, tested work and a handover guide so you can use it with confidence.', icon: Clock },
-];
+// Text and on/off live in the admin (Site settings → Promises); icons follow each promise's place in that list
+const PROMISE_ICONS = [MessagesSquare, FileText, ShieldCheck, Clock];
+const FALLBACK_ICON = Sparkles;
 
 /* ---------- 2. Real testimonials (only rendered when present) ---------- */
 function TestimonialList() {
@@ -52,15 +49,18 @@ function TestimonialList() {
 function CollaborationPromises() {
   return (
     <RevealGroup className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-      {COLLABORATION_PROMISES.map(({ title, description, icon: PromiseIcon }) => (
-        <RevealItem key={title} className="h-full">
-          <div className="h-full rounded-2xl border border-line bg-surface p-6">
-            <PromiseIcon size={22} className="text-cyan-text" aria-hidden="true" />
-            <h3 className="mt-4 text-lg font-semibold tracking-tight">{title}</h3>
-            <p className="mt-2 text-[15px] leading-relaxed text-muted">{description}</p>
-          </div>
-        </RevealItem>
-      ))}
+      {PROMISES.map(({ title, description, position }) => {
+        const PromiseIcon = PROMISE_ICONS[position] ?? FALLBACK_ICON;
+        return (
+          <RevealItem key={title + position} className="h-full">
+            <div className="h-full rounded-2xl border border-line bg-surface p-6">
+              <PromiseIcon size={22} className="text-cyan-text" aria-hidden="true" />
+              <h3 className="mt-4 text-lg font-semibold tracking-tight">{title}</h3>
+              <p className="mt-2 text-[15px] leading-relaxed text-muted">{description}</p>
+            </div>
+          </RevealItem>
+        );
+      })}
     </RevealGroup>
   );
 }
@@ -69,6 +69,8 @@ function CollaborationPromises() {
 export function TrustSection() {
   const hasTestimonials = TESTIMONIALS.length > 0;
   const githubUrl = toSafeExternalUrl(SOCIAL_LINKS.github);
+  // Nothing to show when every review and promise is switched off and there is no GitHub link
+  if (!hasTestimonials && PROMISES.length === 0 && !githubUrl) return null;
 
   return (
     <section aria-labelledby="trust-title" className="py-24 sm:py-28">
@@ -80,7 +82,7 @@ export function TrustSection() {
           description={hasTestimonials ? undefined : 'Every project runs on the same simple rules — so you always know where things stand.'}
         />
 
-        {hasTestimonials ? <TestimonialList /> : <CollaborationPromises />}
+        {hasTestimonials ? <TestimonialList /> : PROMISES.length > 0 && <CollaborationPromises />}
 
         {githubUrl && (
           <a

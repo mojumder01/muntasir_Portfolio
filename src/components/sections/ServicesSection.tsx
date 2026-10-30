@@ -54,6 +54,8 @@ function ServiceCard({ service }: { service: Service }) {
 
 /* ---------- 2. Section ---------- */
 export function ServicesSection() {
+  if (SERVICES.length === 0) return null; // every service switched off
+
   return (
     <section id="services" aria-labelledby="services-title" className="py-24 sm:py-28">
       <div className="page-container">

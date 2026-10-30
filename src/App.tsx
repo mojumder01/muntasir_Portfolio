@@ -1,7 +1,8 @@
 // =============================================================
 // App.tsx
 // Page layout: navbar, all sections in order, footer.
-// To reorder or hide a section, move or remove its line below.
+// Sections can be switched on/off in the admin (Site settings → Layout).
+// To reorder them, move their lines below.
 // =============================================================
 
 import { MotionConfig } from 'motion/react';
@@ -17,6 +18,7 @@ import { ProcessSection } from './components/sections/ProcessSection';
 import { ServicesSection } from './components/sections/ServicesSection';
 import { TrustSection } from './components/sections/TrustSection';
 import { InquiryProvider } from './context/inquiry-context';
+import { LAYOUT } from './config/site-config';
 
 export default function App() {
   return (
@@ -29,13 +31,13 @@ export default function App() {
         <Navbar />
         <main id="main">
           <HeroSection />
-          <ServicesSection />
-          <PortfolioSection />
-          <ProcessSection />
-          <AboutSection />
-          <TrustSection />
-          <PricingSection />
-          <ContactSection />
+          {LAYOUT.isSectionOn('services') && <ServicesSection />}
+          {LAYOUT.isSectionOn('portfolio') && <PortfolioSection />}
+          {LAYOUT.isSectionOn('process') && <ProcessSection />}
+          {LAYOUT.isSectionOn('about') && <AboutSection />}
+          {LAYOUT.isSectionOn('trust') && <TrustSection />}
+          {LAYOUT.isSectionOn('pricing') && <PricingSection />}
+          {LAYOUT.isSectionOn('contact') && <ContactSection />}
         </main>
         <Footer />
         <ChatWidget />
