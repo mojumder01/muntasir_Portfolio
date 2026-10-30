@@ -24,6 +24,50 @@
     }
   },
   {
+    "id": "excel-zorvyn-sales",
+    "title": "Zorvyn — Excel Sales & Inventory Dashboard",
+    "serviceId": "excel-dashboard",
+    "summary": "An interactive Excel dashboard for a Bangladeshi fashion shop: pick a month, category and delivery area and every KPI, chart and table updates — net sales, orders, cancellations, top products, cities, payment methods and low stock.",
+    "tools": ["Excel", "SUMIFS / INDEX-MATCH", "Dropdown filters", "Charts", "Conditional formatting"],
+    "mockup": "dashboard",
+    "isSample": true,
+    "liveUrl": "https://mojumder01.github.io/muntasir_Portfolio/downloads/zorvyn-sales-dashboard.xlsx",
+    "sourceUrl": "",
+    "images": [
+      { "src": "/media/excel-zorvyn-sales-dashboard-cover.jpg", "alt": "Top of the Zorvyn Excel dashboard: title, filter dropdowns, KPI cards, weekly sales and category donut" },
+      { "src": "/media/excel-zorvyn-sales-dashboard.jpg", "alt": "Zorvyn Excel dashboard with orange filter dropdowns, six KPI cards, weekly sales columns, category and payment donuts, top products and a low-stock table" }
+    ],
+    "caseStudy": {
+      "overview": "A one-page sales and stock dashboard in Excel for Zorvyn, a demo online fashion shop in Bangladesh, built on three months of order data in taka.",
+      "problem": "Small online shops export orders from their store or Facebook sheets, then spend hours building the same pivot tables every week — and still miss which sizes are running out.",
+      "solution": "A formula-driven dashboard: three dropdown filters drive six KPI cards with month-on-month change, five charts, a monthly summary and a live low-stock list. New orders are pasted into an Excel table and everything updates — no macros, no pivot refresh.",
+      "process": ["Structured the raw orders as an Excel table, one row per order line", "Built helper calculations with SUMIFS, INDEX/MATCH and RANK so charts follow the filters", "Designed KPI cards with ▲/▼ changes coloured by conditional formatting", "Added a low-stock list that pulls sizes at or below a set level from the stock sheet", "Tested every filter combination against an independent calculation"],
+      "outcome": ""
+    }
+  },
+  {
+    "id": "excel-harbor-pine",
+    "title": "Harbor & Pine — Excel Sales & Profit Dashboard (US)",
+    "serviceId": "excel-dashboard",
+    "summary": "A dark-theme Excel dashboard for a US outdoor-gear brand: year-to-date revenue, gross profit and margin, orders, return rate and marketing ROAS versus last year, by region, channel and category.",
+    "tools": ["Excel", "SUMIFS / SUMPRODUCT", "Year-over-year analysis", "Charts", "Conditional formatting"],
+    "mockup": "dashboard",
+    "isSample": true,
+    "liveUrl": "https://mojumder01.github.io/muntasir_Portfolio/downloads/harbor-pine-sales-dashboard.xlsx",
+    "sourceUrl": "",
+    "images": [
+      { "src": "/media/excel-harbor-pine-dashboard-cover.jpg", "alt": "Top of the Harbor & Pine Excel dashboard: title, filter dropdowns, KPI cards, monthly revenue versus prior year and channel donut" },
+      { "src": "/media/excel-harbor-pine-dashboard.jpg", "alt": "Harbor & Pine dark Excel dashboard with blue filter dropdowns, KPI cards with year-over-year change, monthly revenue versus prior year, channel donut, region, margin and ROAS charts and a category table" }
+    ],
+    "caseStudy": {
+      "overview": "A management dashboard in Excel for Harbor & Pine Outdoor Co., a fictional US brand selling through its online store, Amazon and a retail store across four regions.",
+      "problem": "The owner gets separate exports from Shopify, Amazon and the shop till plus an ad-spend report, and needs one view of profit — not just sales — compared fairly with last year.",
+      "solution": "Four dropdowns (year, region, channel, category) drive year-to-date KPIs compared with the same months a year earlier, so a part year is never compared with a full year. Charts show revenue by month against last year, channel mix, regions, gross margin by category and ROAS, with a category table flagging high return rates.",
+      "process": ["Modelled 22 months of sales by month, region, channel and category, plus ad spend per channel", "Defined clear metrics: net revenue, gross profit, margin, return rate and ROAS", "Built year-to-date and prior-year comparisons with SUMIFS that follow every filter", "Styled a dark dashboard with a colour-blind-safe chart palette and readable contrast", "Checked the results for several filter combinations against an independent calculation"],
+      "outcome": ""
+    }
+  },
+  {
     "id": "tavique-fashion",
     "title": "Tavique Fashion — Luxury Fashion Store",
     "serviceId": "website",
