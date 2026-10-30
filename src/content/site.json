@@ -15,7 +15,7 @@
     "defaultTheme": "light"
   },
   "layout": {
-    "heroStyle": "classic",
+    "heroStyle": "premium",
     "sections": {
       "services": "on",
       "portfolio": "on",
@@ -48,6 +48,7 @@
   },
   "skillGroups": [
     {
+      "status": "on",
       "title": "Web",
       "skills": [
         "HTML",
@@ -56,10 +57,10 @@
         "TypeScript",
         "React",
         "Tailwind CSS"
-      ],
-      "status": "on"
+      ]
     },
     {
+      "status": "on",
       "title": "Excel & data",
       "skills": [
         "Advanced formulas",
@@ -68,10 +69,10 @@
         "VBA",
         "Office Scripts",
         "Google Sheets + Apps Script"
-      ],
-      "status": "on"
+      ]
     },
     {
+      "status": "on",
       "title": "Automation & AI",
       "skills": [
         "Python",
@@ -80,17 +81,62 @@
         "FastAPI",
         "LLM APIs",
         "LangGraph"
-      ],
-      "status": "on"
+      ]
     },
     {
+      "status": "on",
       "title": "Workflow",
       "skills": [
         "Git & GitHub",
         "Telegram / email alerts",
         "Documentation"
-      ],
-      "status": "on"
+      ]
+    }
+  ],
+  "process": {
+    "steps": [
+      {
+        "status": "on",
+        "title": "Discover",
+        "description": "Understand the business, project requirements and desired outcomes."
+      },
+      {
+        "status": "on",
+        "title": "Plan",
+        "description": "Define scope, deliverables, tools and timeline — in writing."
+      },
+      {
+        "status": "on",
+        "title": "Build",
+        "description": "Develop, test and refine the solution, with regular updates."
+      },
+      {
+        "status": "on",
+        "title": "Deliver",
+        "description": "Hand over the finished work, instructions and agreed support."
+      }
+    ]
+  },
+  "promises": [
+    {
+      "status": "on",
+      "title": "Clear communication",
+      "description": "Replies in plain language, regular progress updates and no disappearing mid-project."
+    },
+    {
+      "status": "on",
+      "title": "Defined deliverables",
+      "description": "You get a written list of exactly what will be delivered before any work starts."
+    },
+    {
+      "status": "on",
+      "title": "Transparent scoping",
+      "description": "Price and timeline are agreed upfront. Changes are discussed before they cost you anything."
+    },
+    {
+      "status": "on",
+      "title": "Reliable delivery",
+      "description": "Realistic deadlines, tested work and a handover guide so you can use it with confidence."
     }
   ],
   "chat": {
@@ -104,51 +150,5 @@
   },
   "integrations": {
     "googleSheetWebAppUrl": "https://script.google.com/macros/s/AKfycbwA1UDvpG5tdu29Y-Il0B_WEd1bv6PLMbmhyV0KECaK-pQITOu9xaAZ--oP-zEIKe8l/exec"
-  },
-  "process": {
-    "steps": [
-      {
-        "title": "Discover",
-        "description": "Understand the business, project requirements and desired outcomes.",
-        "status": "on"
-      },
-      {
-        "title": "Plan",
-        "description": "Define scope, deliverables, tools and timeline — in writing.",
-        "status": "on"
-      },
-      {
-        "title": "Build",
-        "description": "Develop, test and refine the solution, with regular updates.",
-        "status": "on"
-      },
-      {
-        "title": "Deliver",
-        "description": "Hand over the finished work, instructions and agreed support.",
-        "status": "on"
-      }
-    ]
-  },
-  "promises": [
-    {
-      "title": "Clear communication",
-      "description": "Replies in plain language, regular progress updates and no disappearing mid-project.",
-      "status": "on"
-    },
-    {
-      "title": "Defined deliverables",
-      "description": "You get a written list of exactly what will be delivered before any work starts.",
-      "status": "on"
-    },
-    {
-      "title": "Transparent scoping",
-      "description": "Price and timeline are agreed upfront. Changes are discussed before they cost you anything.",
-      "status": "on"
-    },
-    {
-      "title": "Reliable delivery",
-      "description": "Realistic deadlines, tested work and a handover guide so you can use it with confidence.",
-      "status": "on"
-    }
-  ]
+  }
 }
