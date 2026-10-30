@@ -24,6 +24,28 @@
     }
   },
   {
+    "id": "excel-crestview-retail",
+    "title": "Crestview Retail — Excel Sales Dashboard",
+    "serviceId": "excel-dashboard",
+    "summary": "A navy-and-green Excel dashboard for a US retailer with a clickable sidebar: choose a year and month to update total sales, profit, orders and customers, the sales trend, category and region charts, monthly comparison, top products and recent orders.",
+    "tools": ["Excel", "SUMIFS / COUNTIFS", "INDEX-MATCH / LARGE", "Hyperlink navigation", "Charts"],
+    "mockup": "dashboard",
+    "isSample": true,
+    "liveUrl": "https://mojumder01.github.io/muntasir_Portfolio/downloads/crestview-retail-dashboard.xlsx",
+    "sourceUrl": "",
+    "images": [
+      { "src": "/media/excel-crestview-thumb.jpg", "alt": "Professional Excel dashboard promo for Crestview Retail: features list, navy dashboard overview with KPI cards, sales trend, category donut and region bars" },
+      { "src": "/media/excel-crestview-dashboard.jpg", "alt": "Crestview Retail Excel dashboard overview: sidebar menu, year and month filters, four KPI cards, sales trend, category, region, top products, monthly comparison and recent orders" }
+    ],
+    "caseStudy": {
+      "overview": "A one-page sales overview in Excel for Crestview Retail Co., a fictional US store selling electronics, clothing, home, beauty and other goods across five regions, built on two years of orders.",
+      "problem": "Store owners want a dashboard that feels like an app — clear KPIs, the main charts and the latest orders on one screen — without paying for BI software or learning pivot tables.",
+      "solution": "An app-style workbook: a navy sidebar links to Overview, Sales, Products, Customers and Orders pages, and two dropdowns (year, month) drive KPI cards with change against the previous month or year, a sales trend, category and region breakdowns, a monthly year-on-year comparison, the top 5 products and the five most recent orders.",
+      "process": ["Structured two years of orders as an Excel table with formula helper columns", "Counted distinct customers per month and year with running COUNTIFS flags", "Pulled the top products and latest orders with RANK, LARGE and INDEX/MATCH", "Built clickable navigation with HYPERLINK and matching report pages", "Checked totals, customers, comparisons and recent orders against an independent calculation"],
+      "outcome": ""
+    }
+  },
+  {
     "id": "excel-zorvyn-sales",
     "title": "Zorvyn — Excel Sales & Inventory Dashboard",
     "serviceId": "excel-dashboard",
@@ -34,7 +56,7 @@
     "liveUrl": "https://mojumder01.github.io/muntasir_Portfolio/downloads/zorvyn-sales-dashboard.xlsx",
     "sourceUrl": "",
     "images": [
-      { "src": "/media/excel-zorvyn-sales-dashboard-cover.jpg", "alt": "Top of the Zorvyn Excel dashboard: title, filter dropdowns, KPI cards, weekly sales and category donut" },
+      { "src": "/media/excel-zorvyn-thumb.jpg", "alt": "Professional Excel dashboard promo for Zorvyn: features list, KPI cards, weekly sales chart and category donut" },
       { "src": "/media/excel-zorvyn-sales-dashboard.jpg", "alt": "Zorvyn Excel dashboard with orange filter dropdowns, six KPI cards, weekly sales columns, category and payment donuts, top products and a low-stock table" }
     ],
     "caseStudy": {
@@ -56,7 +78,7 @@
     "liveUrl": "https://mojumder01.github.io/muntasir_Portfolio/downloads/harbor-pine-sales-dashboard.xlsx",
     "sourceUrl": "",
     "images": [
-      { "src": "/media/excel-harbor-pine-dashboard-cover.jpg", "alt": "Top of the Harbor & Pine Excel dashboard: title, filter dropdowns, KPI cards, monthly revenue versus prior year and channel donut" },
+      { "src": "/media/excel-harbor-thumb.jpg", "alt": "Professional Excel dashboard promo for Harbor & Pine: features list, dark KPI cards, revenue versus prior year and channel donut" },
       { "src": "/media/excel-harbor-pine-dashboard.jpg", "alt": "Harbor & Pine dark Excel dashboard with blue filter dropdowns, KPI cards with year-over-year change, monthly revenue versus prior year, channel donut, region, margin and ROAS charts and a category table" }
     ],
     "caseStudy": {
