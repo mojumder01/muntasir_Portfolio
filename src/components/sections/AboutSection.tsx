@@ -31,7 +31,8 @@ export function AboutSection() {
         <Reveal>
           <div className="relative overflow-hidden rounded-3xl border border-line bg-surface p-6 sm:p-8 lg:sticky lg:top-28">
             <div aria-hidden="true" className="glow-orb -top-20 -left-16 size-56 bg-blue/25" />
-            <div className="relative">
+            {/* Tablet: photo beside the details so the card has no empty half; phone and desktop: stacked */}
+            <div className="relative sm:grid sm:grid-cols-[minmax(0,260px)_1fr] sm:items-center sm:gap-8 lg:block">
               {SITE.photoUrl ? (
                 <img src={SITE.photoUrl} alt={`Portrait of ${SITE.fullName}`} className="aspect-[4/5] w-full max-w-sm rounded-2xl border border-line-strong object-cover" />
               ) : (
@@ -39,28 +40,30 @@ export function AboutSection() {
                   {SITE.initials}
                 </span>
               )}
-              <h3 className="mt-6 text-2xl font-semibold tracking-tight">{SITE.fullName}</h3>
-              <p className="mt-1 text-muted">{SITE.role}</p>
-              <p className="mt-3 flex items-center gap-2 text-[14px] text-muted">
-                <MapPin size={16} aria-hidden="true" /> {SITE.location}
-              </p>
+              <div>
+                <h3 className="mt-6 text-2xl font-semibold tracking-tight sm:mt-0 lg:mt-6">{SITE.fullName}</h3>
+                <p className="mt-1 text-muted">{SITE.role}</p>
+                <p className="mt-3 flex items-center gap-2 text-[14px] text-muted">
+                  <MapPin size={16} aria-hidden="true" /> {SITE.location}
+                </p>
 
-              {socialLinks.length > 0 && (
-                <ul className="mt-6 flex flex-wrap gap-2">
-                  {socialLinks.map((socialLink) => (
-                    <li key={socialLink.id}>
-                      <a
-                        href={socialLink.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-line-strong px-4 text-[14px] font-medium hover:bg-fg/5"
-                      >
-                        <SocialIcon socialId={socialLink.id} /> {socialLink.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              )}
+                {socialLinks.length > 0 && (
+                  <ul className="mt-6 flex flex-wrap gap-2">
+                    {socialLinks.map((socialLink) => (
+                      <li key={socialLink.id}>
+                        <a
+                          href={socialLink.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-line-strong px-4 text-[14px] font-medium hover:bg-fg/5"
+                        >
+                          <SocialIcon socialId={socialLink.id} /> {socialLink.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
             </div>
           </div>
         </Reveal>
