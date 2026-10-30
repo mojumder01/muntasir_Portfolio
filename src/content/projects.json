@@ -215,7 +215,10 @@
     "isSample": true,
     "liveUrl": "https://mojumder01.github.io/Restaurant-portfolio/",
     "sourceUrl": "https://github.com/mojumder01/Restaurant-portfolio",
-    "images": [],
+    "images": [
+      { "src": "/media/aurelia-restaurant-home.jpg", "alt": "Aurelia restaurant home page with the headline Where fire meets flavour and a kacchi biryani photo inside rotating rings" },
+      { "src": "/media/aurelia-restaurant-gallery.jpg", "alt": "Aurelia gallery section with kacchi biryani, tehari, jhal chicken fry and the dining room" }
+    ],
     "caseStudy": {
       "overview": "A sample website for Aurelia, a family restaurant in Gulshan known for kacchi biryani, shorshe ilish and kala bhuna.",
       "problem": "Many Dhaka restaurants rely on a Facebook page, so the menu, prices, opening hours and booking options are hard to find, and the food never looks its best.",
