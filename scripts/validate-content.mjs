@@ -210,6 +210,10 @@ function checkProjects(projects, serviceIds, problems) {
   projects.forEach((project, index) => {
     const path = [itemLabel(project, index)];
     check.status(project.status, [...path, 'status']);
+    const priority = project.priority;
+    if (priority !== undefined && priority !== null && priority !== '' && (typeof priority !== 'number' || priority < 0 || priority > 9999)) {
+      check.add([...path, 'priority'], 'should be a number like 1 (1 shows first), or empty');
+    }
     if (typeof project.id !== 'string' || !ID_PATTERN.test(project.id)) check.add([...path, 'id'], 'use lowercase letters, numbers and dashes, e.g. "sales-dashboard"');
     ['title', 'summary'].forEach((key) => check.text(project[key], [...path, key]));
     if (!serviceIds.includes(project.serviceId)) check.add([...path, 'serviceId'], `"${project.serviceId}" doesn't match any service id. Use one of: ${serviceIds.join(', ')}`);

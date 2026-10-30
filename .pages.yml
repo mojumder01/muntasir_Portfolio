@@ -184,6 +184,7 @@ content:
     list: true
     fields:
       - { name: status, label: Show on site, type: select, default: 'on', description: 'On = shown · Off = hidden but kept, switch it back on any time', options: { values: [{ value: 'on', label: 'On — show' }, { value: 'off', label: 'Off — hide' }] } }
+      - { name: priority, label: Priority (order on the site), type: number, description: '1 shows first, then 2, 3 … Empty = after the numbered projects, in list order' }
       - { name: id, label: Id, type: string, required: true, description: 'Lowercase letters, numbers and dashes, e.g. sales-dashboard' }
       - { name: title, label: Title, type: string, required: true }
       - name: serviceId
