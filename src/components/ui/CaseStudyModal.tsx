@@ -101,7 +101,7 @@ export function CaseStudyModal({ project, onClose }: CaseStudyModalProps) {
             <Button onClick={handleDiscussSimilar}>Have a similar project?</Button>
             {toSafeExternalUrl(project.liveUrl) && (
               <ButtonLink href={toSafeExternalUrl(project.liveUrl)} isExternal variant="secondary">
-                View live demo <ArrowUpRight size={17} />
+                {/\.xlsx$/i.test(project.liveUrl) ? 'Download Excel file' : 'View live demo'} <ArrowUpRight size={17} />
               </ButtonLink>
             )}
             {toSafeExternalUrl(project.sourceUrl) && (
