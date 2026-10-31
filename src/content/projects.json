@@ -1,195 +1,353 @@
 [
   {
+    "status": "on",
     "id": "zorvyn-admin",
     "title": "Zorvyn Admin — E-commerce Admin Dashboard",
     "serviceId": "website",
     "summary": "An admin panel for the Zorvyn store with light and dark themes: animated sales charts (area, donut, bar), an order workflow with printable invoices, product and stock management, customers, reports with CSV export and settings.",
-    "tools": ["React", "TypeScript", "Tailwind CSS", "Animated SVG charts", "GitHub Pages"],
+    "tools": [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Animated SVG charts",
+      "GitHub Pages"
+    ],
     "mockup": "dashboard",
     "isSample": true,
     "liveUrl": "https://mojumder01.github.io/zorvyn-admin/",
     "sourceUrl": "https://github.com/mojumder01/zorvyn-admin",
     "images": [
-      { "src": "/media/zorvyn-admin-dashboard-light.jpg", "alt": "Zorvyn Admin dashboard in light mode with colourful stat tiles, an animated revenue trend and an orders-by-status donut chart" },
-      { "src": "/media/zorvyn-admin-dashboard-dark.jpg", "alt": "Zorvyn Admin dashboard in dark mode with sparklines, a revenue area chart and an orders-by-status donut chart" },
-      { "src": "/media/zorvyn-admin-reports-light.jpg", "alt": "Zorvyn Admin reports in light mode with category and payment donut charts, revenue by weekday bars and top cities" },
-      { "src": "/media/zorvyn-admin-reports-dark.jpg", "alt": "Zorvyn Admin reports in dark mode with category and payment donut charts, revenue by weekday bars and top cities" }
+      {
+        "src": "/media/zorvyn-admin-dashboard-light.jpg",
+        "alt": "Zorvyn Admin dashboard in light mode with colourful stat tiles, an animated revenue trend and an orders-by-status donut chart"
+      },
+      {
+        "src": "/media/zorvyn-admin-dashboard-dark.jpg",
+        "alt": "Zorvyn Admin dashboard in dark mode with sparklines, a revenue area chart and an orders-by-status donut chart"
+      },
+      {
+        "src": "/media/zorvyn-admin-reports-light.jpg",
+        "alt": "Zorvyn Admin reports in light mode with category and payment donut charts, revenue by weekday bars and top cities"
+      },
+      {
+        "src": "/media/zorvyn-admin-reports-dark.jpg",
+        "alt": "Zorvyn Admin reports in dark mode with category and payment donut charts, revenue by weekday bars and top cities"
+      }
     ],
     "caseStudy": {
       "overview": "The back office for the Zorvyn demo store: everything a small online shop owner needs to run daily orders, stock and sales in one place.",
       "problem": "Small Bangladeshi shops often track orders in Facebook messages and stock in notebooks or spreadsheets, so orders get missed, popular sizes run out and nobody knows which products actually sell.",
       "solution": "A fast admin dashboard with sales numbers for any period, a clear order workflow (pending → confirmed → shipped → delivered, or cancelled with stock returned), product and size-level stock management with low-stock alerts, customer history, reports and Excel-ready CSV exports.",
-      "process": ["Mapped the shop owner's daily jobs: confirm orders, ship, restock, check sales", "Generated 90 days of realistic demo orders in taka with Bangladeshi cities and payment methods", "Built the dashboard, order workflow, product form with photo upload and inline stock editing", "Drew animated, colour-blind-safe charts (area, donut, bar) with hover and keyboard tooltips and a table view", "Tested every flow on phone and desktop in light and dark mode, and published on GitHub Pages"],
-      "outcome": ""
+      "process": [
+        "Mapped the shop owner's daily jobs: confirm orders, ship, restock, check sales",
+        "Generated 90 days of realistic demo orders in taka with Bangladeshi cities and payment methods",
+        "Built the dashboard, order workflow, product form with photo upload and inline stock editing",
+        "Drew animated, colour-blind-safe charts (area, donut, bar) with hover and keyboard tooltips and a table view",
+        "Tested every flow on phone and desktop in light and dark mode, and published on GitHub Pages"
+      ]
     }
   },
   {
+    "status": "on",
     "id": "excel-crestview-retail",
     "title": "Crestview Retail — Excel Sales Dashboard",
     "serviceId": "excel-dashboard",
     "summary": "A navy-and-green Excel dashboard for a US retailer with a clickable sidebar: choose a year and month to update total sales, profit, orders and customers, the sales trend, category and region charts, monthly comparison, top products and recent orders.",
-    "tools": ["Excel", "SUMIFS / COUNTIFS", "INDEX-MATCH / LARGE", "Hyperlink navigation", "Charts"],
+    "tools": [
+      "Excel",
+      "SUMIFS / COUNTIFS",
+      "INDEX-MATCH / LARGE",
+      "Hyperlink navigation",
+      "Charts"
+    ],
     "mockup": "dashboard",
     "isSample": true,
     "liveUrl": "https://mojumder01.github.io/muntasir_Portfolio/downloads/crestview-retail-dashboard.xlsx",
-    "sourceUrl": "",
     "images": [
-      { "src": "/media/excel-crestview-thumb.jpg", "alt": "Professional Excel dashboard promo for Crestview Retail: features list, navy dashboard overview with KPI cards, sales trend, category donut and region bars" },
-      { "src": "/media/excel-crestview-dashboard.jpg", "alt": "Crestview Retail Excel dashboard overview: sidebar menu, year and month filters, four KPI cards, sales trend, category, region, top products, monthly comparison and recent orders" }
+      {
+        "src": "/media/excel-crestview-thumb.jpg",
+        "alt": "Professional Excel dashboard promo for Crestview Retail: features list, navy dashboard overview with KPI cards, sales trend, category donut and region bars"
+      },
+      {
+        "src": "/media/excel-crestview-dashboard.jpg",
+        "alt": "Crestview Retail Excel dashboard overview: sidebar menu, year and month filters, four KPI cards, sales trend, category, region, top products, monthly comparison and recent orders"
+      }
     ],
     "caseStudy": {
       "overview": "A one-page sales overview in Excel for Crestview Retail Co., a fictional US store selling electronics, clothing, home, beauty and other goods across five regions, built on two years of orders.",
       "problem": "Store owners want a dashboard that feels like an app — clear KPIs, the main charts and the latest orders on one screen — without paying for BI software or learning pivot tables.",
       "solution": "An app-style workbook: a navy sidebar links to Overview, Sales, Products, Customers and Orders pages, and two dropdowns (year, month) drive KPI cards with change against the previous month or year, a sales trend, category and region breakdowns, a monthly year-on-year comparison, the top 5 products and the five most recent orders.",
-      "process": ["Structured two years of orders as an Excel table with formula helper columns", "Counted distinct customers per month and year with running COUNTIFS flags", "Pulled the top products and latest orders with RANK, LARGE and INDEX/MATCH", "Built clickable navigation with HYPERLINK and matching report pages", "Checked totals, customers, comparisons and recent orders against an independent calculation"],
-      "outcome": ""
+      "process": [
+        "Structured two years of orders as an Excel table with formula helper columns",
+        "Counted distinct customers per month and year with running COUNTIFS flags",
+        "Pulled the top products and latest orders with RANK, LARGE and INDEX/MATCH",
+        "Built clickable navigation with HYPERLINK and matching report pages",
+        "Checked totals, customers, comparisons and recent orders against an independent calculation"
+      ]
     }
   },
   {
+    "status": "on",
     "id": "excel-zorvyn-sales",
     "title": "Zorvyn — Excel Sales & Inventory Dashboard",
     "serviceId": "excel-dashboard",
     "summary": "An interactive Excel dashboard for a Bangladeshi fashion shop: pick a month, category and delivery area and every KPI, chart and table updates — net sales, orders, cancellations, top products, cities, payment methods and low stock.",
-    "tools": ["Excel", "SUMIFS / INDEX-MATCH", "Dropdown filters", "Charts", "Conditional formatting"],
+    "tools": [
+      "Excel",
+      "SUMIFS / INDEX-MATCH",
+      "Dropdown filters",
+      "Charts",
+      "Conditional formatting"
+    ],
     "mockup": "dashboard",
     "isSample": true,
     "liveUrl": "https://mojumder01.github.io/muntasir_Portfolio/downloads/zorvyn-sales-dashboard.xlsx",
-    "sourceUrl": "",
     "images": [
-      { "src": "/media/excel-zorvyn-thumb.jpg", "alt": "Orange promo for the Zorvyn Excel dashboard: “Sales & Inventory” headline, dashboard screenshot and features — low-stock alerts, bKash/Nagad/COD split, cancellations, top products and filters" },
-      { "src": "/media/excel-zorvyn-sales-dashboard.jpg", "alt": "Zorvyn Excel dashboard with orange filter dropdowns, six KPI cards, weekly sales columns, category and payment donuts, top products and a low-stock table" }
+      {
+        "src": "/media/excel-zorvyn-thumb.jpg",
+        "alt": "Orange promo for the Zorvyn Excel dashboard: “Sales & Inventory” headline, dashboard screenshot and features — low-stock alerts, bKash/Nagad/COD split, cancellations, top products and filters"
+      },
+      {
+        "src": "/media/excel-zorvyn-sales-dashboard.jpg",
+        "alt": "Zorvyn Excel dashboard with orange filter dropdowns, six KPI cards, weekly sales columns, category and payment donuts, top products and a low-stock table"
+      }
     ],
     "caseStudy": {
       "overview": "A one-page sales and stock dashboard in Excel for Zorvyn, a demo online fashion shop in Bangladesh, built on three months of order data in taka.",
       "problem": "Small online shops export orders from their store or Facebook sheets, then spend hours building the same pivot tables every week — and still miss which sizes are running out.",
       "solution": "A formula-driven dashboard: three dropdown filters drive six KPI cards with month-on-month change, five charts, a monthly summary and a live low-stock list. New orders are pasted into an Excel table and everything updates — no macros, no pivot refresh.",
-      "process": ["Structured the raw orders as an Excel table, one row per order line", "Built helper calculations with SUMIFS, INDEX/MATCH and RANK so charts follow the filters", "Designed KPI cards with ▲/▼ changes coloured by conditional formatting", "Added a low-stock list that pulls sizes at or below a set level from the stock sheet", "Tested every filter combination against an independent calculation"],
-      "outcome": ""
+      "process": [
+        "Structured the raw orders as an Excel table, one row per order line",
+        "Built helper calculations with SUMIFS, INDEX/MATCH and RANK so charts follow the filters",
+        "Designed KPI cards with ▲/▼ changes coloured by conditional formatting",
+        "Added a low-stock list that pulls sizes at or below a set level from the stock sheet",
+        "Tested every filter combination against an independent calculation"
+      ]
     }
   },
   {
+    "status": "on",
     "id": "excel-harbor-pine",
     "title": "Harbor & Pine — Excel Sales & Profit Dashboard (US)",
     "serviceId": "excel-dashboard",
     "summary": "A dark-theme Excel dashboard for a US outdoor-gear brand: year-to-date revenue, gross profit and margin, orders, return rate and marketing ROAS versus last year, by region, channel and category.",
-    "tools": ["Excel", "SUMIFS / SUMPRODUCT", "Year-over-year analysis", "Charts", "Conditional formatting"],
+    "tools": [
+      "Excel",
+      "SUMIFS / SUMPRODUCT",
+      "Year-over-year analysis",
+      "Charts",
+      "Conditional formatting"
+    ],
     "mockup": "dashboard",
     "isSample": true,
     "liveUrl": "https://mojumder01.github.io/muntasir_Portfolio/downloads/harbor-pine-sales-dashboard.xlsx",
-    "sourceUrl": "",
     "images": [
-      { "src": "/media/excel-harbor-thumb.jpg", "alt": "Dark promo for the Harbor & Pine Excel dashboard: “Sales & Profit” headline, dashboard screenshot and four KPI tiles — +16.2% revenue, 51.7% margin, 7.3% returns, 6.4× ROAS" },
-      { "src": "/media/excel-harbor-pine-dashboard.jpg", "alt": "Harbor & Pine dark Excel dashboard with blue filter dropdowns, KPI cards with year-over-year change, monthly revenue versus prior year, channel donut, region, margin and ROAS charts and a category table" }
+      {
+        "src": "/media/excel-harbor-thumb.jpg",
+        "alt": "Dark promo for the Harbor & Pine Excel dashboard: “Sales & Profit” headline, dashboard screenshot and four KPI tiles — +16.2% revenue, 51.7% margin, 7.3% returns, 6.4× ROAS"
+      },
+      {
+        "src": "/media/excel-harbor-pine-dashboard.jpg",
+        "alt": "Harbor & Pine dark Excel dashboard with blue filter dropdowns, KPI cards with year-over-year change, monthly revenue versus prior year, channel donut, region, margin and ROAS charts and a category table"
+      }
     ],
     "caseStudy": {
       "overview": "A management dashboard in Excel for Harbor & Pine Outdoor Co., a fictional US brand selling through its online store, Amazon and a retail store across four regions.",
       "problem": "The owner gets separate exports from Shopify, Amazon and the shop till plus an ad-spend report, and needs one view of profit — not just sales — compared fairly with last year.",
       "solution": "Four dropdowns (year, region, channel, category) drive year-to-date KPIs compared with the same months a year earlier, so a part year is never compared with a full year. Charts show revenue by month against last year, channel mix, regions, gross margin by category and ROAS, with a category table flagging high return rates.",
-      "process": ["Modelled 22 months of sales by month, region, channel and category, plus ad spend per channel", "Defined clear metrics: net revenue, gross profit, margin, return rate and ROAS", "Built year-to-date and prior-year comparisons with SUMIFS that follow every filter", "Styled a dark dashboard with a colour-blind-safe chart palette and readable contrast", "Checked the results for several filter combinations against an independent calculation"],
-      "outcome": ""
+      "process": [
+        "Modelled 22 months of sales by month, region, channel and category, plus ad spend per channel",
+        "Defined clear metrics: net revenue, gross profit, margin, return rate and ROAS",
+        "Built year-to-date and prior-year comparisons with SUMIFS that follow every filter",
+        "Styled a dark dashboard with a colour-blind-safe chart palette and readable contrast",
+        "Checked the results for several filter combinations against an independent calculation"
+      ]
     }
   },
   {
+    "status": "on",
     "id": "tavique-fashion",
     "title": "Tavique Fashion — Luxury Fashion Store",
     "serviceId": "website",
     "summary": "An editorial luxury fashion store with campaign layouts, colour and size options, a size guide, a cart drawer, wishlist and a full demo checkout.",
-    "tools": ["Next.js", "TypeScript", "Tailwind CSS", "Zustand", "GitHub Pages"],
+    "tools": [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Zustand",
+      "GitHub Pages"
+    ],
     "mockup": "website",
     "isSample": true,
     "liveUrl": "https://mojumder01.github.io/Tavique/fashion/",
     "sourceUrl": "https://github.com/mojumder01/Tavique",
     "images": [
-      { "src": "/media/tavique-fashion-home.jpg", "alt": "Tavique Fashion home page with a large campaign photo and the headline “Designed to be worn with presence”" },
-      { "src": "/media/tavique-fashion-product.jpg", "alt": "Tavique Fashion product page for a belted cotton trench with colour and size options" }
+      {
+        "src": "/media/tavique-fashion-home.jpg",
+        "alt": "Tavique Fashion home page with a large campaign photo and the headline “Designed to be worn with presence”"
+      },
+      {
+        "src": "/media/tavique-fashion-product.jpg",
+        "alt": "Tavique Fashion product page for a belted cotton trench with colour and size options"
+      }
     ],
     "caseStudy": {
       "overview": "The fashion storefront of Tavique, a multi-store e-commerce template, styled as an editorial luxury brand.",
       "problem": "Premium fashion brands need a store that feels like their lookbook, while still making sizes, stock and checkout clear.",
       "solution": "A calm, magazine-style layout with Bodoni and Jost type, warm neutrals and campaign sections, backed by URL-synced filters, variant-aware stock, a size guide, wishlist, discount codes and a validated demo checkout.",
-      "process": ["Defined the brand feel: editorial, quiet, premium", "Built the theme, centred header and campaign homepage from a store config file", "Added filters, product gallery with zoom, colour and size variants and a size guide", "Built the cart drawer, discount codes, shipping options and a validated demo checkout", "Tested on phone and desktop and published a static export on GitHub Pages"],
-      "outcome": ""
+      "process": [
+        "Defined the brand feel: editorial, quiet, premium",
+        "Built the theme, centred header and campaign homepage from a store config file",
+        "Added filters, product gallery with zoom, colour and size variants and a size guide",
+        "Built the cart drawer, discount codes, shipping options and a validated demo checkout",
+        "Tested on phone and desktop and published a static export on GitHub Pages"
+      ]
     }
   },
   {
+    "status": "on",
     "id": "tavique-electronics",
     "title": "Tavique Electronics — Gadgets & Tech Store",
     "serviceId": "website",
     "summary": "A search-first electronics store with spec details, storage and colour variants, light and dark themes, deals, a cart drawer and a full demo checkout.",
-    "tools": ["Next.js", "TypeScript", "Tailwind CSS", "Zustand", "GitHub Pages"],
+    "tools": [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Zustand",
+      "GitHub Pages"
+    ],
     "mockup": "website",
     "isSample": true,
     "liveUrl": "https://mojumder01.github.io/Tavique/electronics/",
     "sourceUrl": "https://github.com/mojumder01/Tavique",
     "images": [
-      { "src": "/media/tavique-electronics-home.jpg", "alt": "Tavique Electronics home page with a large search bar and an Arcline One Pro phone spotlight" },
-      { "src": "/media/tavique-electronics-product.jpg", "alt": "Tavique Electronics product page for the Arcline One Pro with colour and storage options" }
+      {
+        "src": "/media/tavique-electronics-home.jpg",
+        "alt": "Tavique Electronics home page with a large search bar and an Arcline One Pro phone spotlight"
+      },
+      {
+        "src": "/media/tavique-electronics-product.jpg",
+        "alt": "Tavique Electronics product page for the Arcline One Pro with colour and storage options"
+      }
     ],
     "caseStudy": {
       "overview": "The electronics storefront of Tavique, built for shoppers who search first and compare specs before they buy.",
       "problem": "Tech shoppers know what they want and hate digging: they need fast search, clear specs and honest stock and price per option.",
       "solution": "A clean, technical layout in Geist type with graphite and blue, a search bar with suggestions and popular searches, category navigation, specs on every product, variant-aware pricing and stock, and a light/dark theme.",
-      "process": ["Mapped the shopping flow around search and comparison", "Built the search-first header, category bar and deals sections", "Added product specs, storage and colour variants with their own price and stock", "Added a light and dark theme that remembers the visitor’s choice", "Tested the full checkout on phone and desktop and published on GitHub Pages"],
-      "outcome": ""
+      "process": [
+        "Mapped the shopping flow around search and comparison",
+        "Built the search-first header, category bar and deals sections",
+        "Added product specs, storage and colour variants with their own price and stock",
+        "Added a light and dark theme that remembers the visitor’s choice",
+        "Tested the full checkout on phone and desktop and published on GitHub Pages"
+      ]
     }
   },
   {
+    "status": "on",
     "id": "tavique-beauty",
     "title": "Tavique Beauty — Skincare & Makeup Store",
     "serviceId": "website",
     "summary": "A soft, refined beauty store with shop-by-concern tiles, a routine builder, shade options, journal content and a full demo checkout.",
-    "tools": ["Next.js", "TypeScript", "Tailwind CSS", "Zustand", "GitHub Pages"],
+    "tools": [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Zustand",
+      "GitHub Pages"
+    ],
     "mockup": "website",
     "isSample": true,
     "liveUrl": "https://mojumder01.github.io/Tavique/beauty/",
     "sourceUrl": "https://github.com/mojumder01/Tavique",
     "images": [
-      { "src": "/media/tavique-beauty-home.jpg", "alt": "Tavique Beauty home page with two Multi-Stick lipsticks and the headline “Clean colour, your way.”" },
-      { "src": "/media/tavique-beauty-product.jpg", "alt": "Tavique Beauty product page for the Multi-Stick cheek and lip colour with shade options" }
+      {
+        "src": "/media/tavique-beauty-home.jpg",
+        "alt": "Tavique Beauty home page with two Multi-Stick lipsticks and the headline “Clean colour, your way.”"
+      },
+      {
+        "src": "/media/tavique-beauty-product.jpg",
+        "alt": "Tavique Beauty product page for the Multi-Stick cheek and lip colour with shade options"
+      }
     ],
     "caseStudy": {
       "overview": "The beauty storefront of Tavique, designed to help shoppers find the right products for their skin and build a routine.",
       "problem": "Beauty shoppers shop by concern (dryness, dullness, fine lines), not by category, and need help choosing products that work together.",
       "solution": "A soft cream-and-blush design in Newsreader and Figtree type with shop-by-concern tiles, a routine builder, shade options on products, journal articles and the same fast cart and checkout as the other stores.",
-      "process": ["Organised the catalogue by skin concern as well as category", "Designed a soft, refined theme with its own header and product cards", "Built concern tiles, a routine builder and journal content", "Added shade options, reviews and suggested products on every product page", "Tested on phone and desktop and published on GitHub Pages"],
-      "outcome": ""
+      "process": [
+        "Organised the catalogue by skin concern as well as category",
+        "Designed a soft, refined theme with its own header and product cards",
+        "Built concern tiles, a routine builder and journal content",
+        "Added shade options, reviews and suggested products on every product page",
+        "Tested on phone and desktop and published on GitHub Pages"
+      ]
     }
   },
   {
+    "status": "on",
     "id": "zorvyn-store",
     "title": "Zorvyn — Fashion E-commerce Store",
     "serviceId": "website",
     "summary": "A responsive fashion store for sneakers, denim, women's and kids' wear: category filters, search, size charts, a saved shopping cart and a cash-on-delivery checkout with Dhaka delivery fees.",
-    "tools": ["React", "TypeScript", "Tailwind CSS", "Vite", "GitHub Pages"],
+    "tools": [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Vite",
+      "GitHub Pages"
+    ],
     "mockup": "website",
     "isSample": true,
     "liveUrl": "https://mojumder01.github.io/Zorvyn/",
     "sourceUrl": "https://github.com/mojumder01/Zorvyn",
     "images": [
-      { "src": "/media/zorvyn-home.jpg", "alt": "Zorvyn store home page with a dark hero banner, sneaker and jeans photos" },
-      { "src": "/media/zorvyn-shop.jpg", "alt": "Zorvyn shop by category tiles for sneakers, jeans, women and kids, above the product grid" }
+      {
+        "src": "/media/zorvyn-home.jpg",
+        "alt": "Zorvyn store home page with a dark hero banner, sneaker and jeans photos"
+      },
+      {
+        "src": "/media/zorvyn-shop.jpg",
+        "alt": "Zorvyn shop by category tiles for sneakers, jeans, women and kids, above the product grid"
+      }
     ],
     "caseStudy": {
       "overview": "A demo e-commerce store for a Bangladeshi fashion brand selling sneakers, denim, women's and kids' wear, built to show a complete shopping flow from browsing to order confirmation.",
       "problem": "Small fashion sellers often sell only through Facebook posts and inbox messages: customers can't browse sizes and prices easily, and every order needs manual back-and-forth.",
       "solution": "A fast, mobile-first store: products with sizes and sale prices, a cart that stays saved on the phone, and a checkout that checks the mobile number and adds the right delivery fee for inside or outside Dhaka.",
-      "process": ["Prepared square product photos and a simple product catalogue in taka", "Designed a clean layout with one accent color and a clear path to checkout", "Built filters, search, sorting, size selection and a saved cart in React and TypeScript", "Added a checkout form with Bangladeshi mobile-number validation and delivery fees", "Tested the full flow on phone and desktop and published it on GitHub Pages"],
-      "outcome": ""
+      "process": [
+        "Prepared square product photos and a simple product catalogue in taka",
+        "Designed a clean layout with one accent color and a clear path to checkout",
+        "Built filters, search, sorting, size selection and a saved cart in React and TypeScript",
+        "Added a checkout form with Bangladeshi mobile-number validation and delivery fees",
+        "Tested the full flow on phone and desktop and published it on GitHub Pages"
+      ]
     }
   },
   {
+    "status": "on",
     "id": "haatnest-landing",
     "title": "Haatnest — Marketplace Landing Page",
     "serviceId": "landing-page",
     "summary": "An animated e-commerce marketplace landing page with live search, category filters, a flash-deal countdown and a working cart counter.",
-    "tools": ["HTML", "CSS animations", "JavaScript"],
+    "tools": [
+      "HTML",
+      "CSS animations",
+      "JavaScript"
+    ],
     "mockup": "landing",
     "isSample": true,
     "liveUrl": "https://mojumder01.github.io/haatnest/",
     "sourceUrl": "https://github.com/mojumder01/haatnest",
     "images": [
-      { "src": "/media/haatnest-home.jpg", "alt": "Haatnest landing page hero with search bar, trending tags and floating deal cards" },
-      { "src": "/media/haatnest-deals.jpg", "alt": "Haatnest flash deals grid with discount badges, countdown timer and add-to-cart buttons" }
+      {
+        "src": "/media/haatnest-home.jpg",
+        "alt": "Haatnest landing page hero with search bar, trending tags and floating deal cards"
+      },
+      {
+        "src": "/media/haatnest-deals.jpg",
+        "alt": "Haatnest flash deals grid with discount badges, countdown timer and add-to-cart buttons"
+      }
     ],
     "caseStudy": {
       "overview": "A concept landing page for a local online marketplace, built to show how motion and clear structure can make a shopping page feel alive.",
@@ -201,106 +359,148 @@
         "Built lightweight CSS animations that respect reduced-motion settings",
         "Added working search, filters, countdown and cart feedback in plain JavaScript",
         "Tested on phone and desktop widths"
-      ],
-      "outcome": ""
+      ]
     }
   },
   {
+    "status": "on",
     "id": "service-business-website",
     "title": "Aurelia — Restaurant Website",
     "serviceId": "website",
     "summary": "An animated website for a Bengali & Mughlai restaurant in Dhaka: signature dishes, a tabbed menu with Bangla names and taka prices, a photo gallery, guest reviews and a table booking form.",
-    "tools": ["React", "TypeScript", "Tailwind CSS", "CSS animations", "GitHub Pages"],
+    "tools": [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "CSS animations",
+      "GitHub Pages"
+    ],
     "mockup": "website",
-    "isSample": true,
+    "isSample": false,
     "liveUrl": "https://mojumder01.github.io/Restaurant-portfolio/",
     "sourceUrl": "https://github.com/mojumder01/Restaurant-portfolio",
     "images": [
-      { "src": "/media/aurelia-restaurant-home.jpg", "alt": "Aurelia restaurant home page with the headline Where fire meets flavour and a kacchi biryani photo inside rotating rings" },
-      { "src": "/media/aurelia-restaurant-gallery.jpg", "alt": "Aurelia gallery section with kacchi biryani, tehari, jhal chicken fry and the dining room" }
+      {
+        "src": "/media/aurelia-restaurant-home.jpg",
+        "alt": "Aurelia restaurant home page with the headline Where fire meets flavour and a kacchi biryani photo inside rotating rings"
+      },
+      {
+        "src": "/media/aurelia-restaurant-gallery.jpg",
+        "alt": "Aurelia gallery section with kacchi biryani, tehari, jhal chicken fry and the dining room"
+      }
     ],
     "caseStudy": {
       "overview": "A sample website for Aurelia, a family restaurant in Gulshan known for kacchi biryani, shorshe ilish and kala bhuna.",
       "problem": "Many Dhaka restaurants rely on a Facebook page, so the menu, prices, opening hours and booking options are hard to find, and the food never looks its best.",
       "solution": "A warm, premium, mobile-first site: an animated hero, swipeable signature dishes, a five-tab menu with heat levels, a gallery with a full-screen viewer, rotating reviews, and a booking form that checks the name, phone and date before confirming.",
-      "process": ["Designed the look first and got it approved before building", "Wrote the real menu: Bangla names, taka prices and heat levels", "Built reusable React components with scroll-triggered animations", "Tested keyboard use, reduced motion and phone layouts, then deployed to GitHub Pages"],
-      "outcome": ""
+      "process": [
+        "Designed the look first and got it approved before building",
+        "Wrote the real menu: Bangla names, taka prices and heat levels",
+        "Built reusable React components with scroll-triggered animations",
+        "Tested keyboard use, reduced motion and phone layouts, then deployed to GitHub Pages"
+      ]
     }
   },
   {
+    "status": "on",
     "id": "sales-kpi-dashboard",
     "title": "Sales KPI Dashboard",
     "serviceId": "excel-dashboard",
     "summary": "An Excel dashboard that turns a raw sales export into KPI cards, monthly trends and top-product views with slicers.",
-    "tools": ["Excel", "Power Query", "Pivot tables", "Slicers"],
+    "tools": [
+      "Excel",
+      "Power Query",
+      "Pivot tables",
+      "Slicers"
+    ],
     "mockup": "dashboard",
     "isSample": true,
-    "liveUrl": "",
-    "sourceUrl": "",
-    "images": [],
     "caseStudy": {
       "overview": "A sample dashboard built from a dummy sales dataset to show a clean reporting layout.",
       "problem": "Sales data lived in long exports; building the monthly summary by hand took hours and was easy to get wrong.",
       "solution": "Power Query loads and shapes the export, pivot tables calculate the KPIs, and one dashboard sheet shows everything with slicers.",
-      "process": ["Listed the business questions first", "Cleaned and modeled the data in Power Query", "Built KPI cards, trend and ranking charts", "Added a refresh guide"],
-      "outcome": ""
+      "process": [
+        "Listed the business questions first",
+        "Cleaned and modeled the data in Power Query",
+        "Built KPI cards, trend and ranking charts",
+        "Added a refresh guide"
+      ]
     }
   },
   {
+    "status": "off",
     "id": "monthly-report-automation",
     "title": "Monthly Report Automation",
     "serviceId": "excel-automation",
     "summary": "A one-click workflow that merges several Excel files, applies formatting and calculations, and saves a ready-to-send report.",
-    "tools": ["VBA", "Office Scripts", "Python"],
+    "tools": [
+      "VBA",
+      "Office Scripts",
+      "Python"
+    ],
     "mockup": "automation",
     "isSample": true,
-    "liveUrl": "",
-    "sourceUrl": "",
-    "images": [],
     "caseStudy": {
       "overview": "A sample automation that replaces a repetitive monthly reporting routine.",
       "problem": "Copying data from several files, fixing formats and recalculating totals every month is slow and error-prone.",
       "solution": "A macro / script that collects the files, validates columns, builds the report and flags anything unusual for review.",
-      "process": ["Recorded the manual steps", "Automated each step with checks", "Added clear error messages", "Wrote a short run guide"],
-      "outcome": ""
+      "process": [
+        "Recorded the manual steps",
+        "Automated each step with checks",
+        "Added clear error messages",
+        "Wrote a short run guide"
+      ]
     }
   },
   {
+    "status": "off",
     "id": "product-data-cleaning",
     "title": "Product Catalog Data Cleaning",
     "serviceId": "data-cleaning",
     "summary": "A cleaning pipeline for a messy product sheet: duplicates, inconsistent units, mixed categories and missing fields.",
-    "tools": ["Python", "pandas", "Excel", "Power Query"],
+    "tools": [
+      "Python",
+      "pandas",
+      "Excel",
+      "Power Query"
+    ],
     "mockup": "cleaning",
     "isSample": true,
-    "liveUrl": "",
-    "sourceUrl": "",
-    "images": [],
     "caseStudy": {
       "overview": "A sample cleaning job based on the kind of product data problems common in e-commerce catalogs.",
       "problem": "Duplicate rows, units written five different ways, wrong categories and blank required fields made the data unusable for reports or uploads.",
       "solution": "Rule-based cleaning steps plus a validation report listing every row that still needs a human decision.",
-      "process": ["Profiled the data to find issue types", "Wrote reusable cleaning rules", "Generated a validation report", "Delivered clean file + rules"],
-      "outcome": ""
+      "process": [
+        "Profiled the data to find issue types",
+        "Wrote reusable cleaning rules",
+        "Generated a validation report",
+        "Delivered clean file + rules"
+      ]
     }
   },
   {
+    "status": "on",
     "id": "ai-content-workflow",
     "title": "AI Product Content Workflow",
     "serviceId": "ai-automation",
     "summary": "An AI-assisted workflow that drafts product titles and descriptions from a spreadsheet, with a human review step before publishing.",
-    "tools": ["Python", "LLM API", "Google Sheets"],
+    "tools": [
+      "Python",
+      "LLM API",
+      "Google Sheets"
+    ],
     "mockup": "ai",
-    "isSample": true,
-    "liveUrl": "",
-    "sourceUrl": "",
-    "images": [],
+    "isSample": false,
     "caseStudy": {
       "overview": "A sample workflow showing how AI can speed up content work while a person stays in control.",
       "problem": "Writing consistent product content for many items by hand is slow, and quality varies between writers.",
       "solution": "Rows go from a sheet to an AI step with clear writing rules; drafts come back to the sheet for review and approval.",
-      "process": ["Defined content rules and examples", "Built the sheet → AI → sheet loop", "Added checks for length and banned words", "Kept a human approval column"],
-      "outcome": ""
+      "process": [
+        "Defined content rules and examples",
+        "Built the sheet → AI → sheet loop",
+        "Added checks for length and banned words",
+        "Kept a human approval column"
+      ]
     }
   }
 ]
