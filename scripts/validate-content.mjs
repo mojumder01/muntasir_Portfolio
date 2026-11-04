@@ -238,6 +238,32 @@ function checkProjects(projects, serviceIds, problems) {
   checkUniqueIds(projects, 'projects.json', problems);
 }
 
+function checkProducts(products, problems) {
+  const check = createChecker('products.json');
+  if (!Array.isArray(products)) return problems.push('products.json: should be a list of products ([] when empty)');
+  products.forEach((product, index) => {
+    const path = [itemLabel(product, index)];
+    check.status(product.status, [...path, 'status']);
+    const priority = product.priority;
+    if (priority !== undefined && priority !== null && priority !== '' && (typeof priority !== 'number' || priority < 0 || priority > 9999)) {
+      check.add([...path, 'priority'], 'should be a number like 1 (1 shows first), or empty');
+    }
+    if (typeof product.id !== 'string' || !ID_PATTERN.test(product.id)) check.add([...path, 'id'], 'use lowercase letters, numbers and dashes, e.g. "online-shop"');
+    ['name', 'tagline'].forEach((key) => check.text(product[key], [...path, key]));
+    const price = product.startingPriceUsd;
+    if (price !== undefined && price !== null && price !== '' && (typeof price !== 'number' || price < 0)) check.add([...path, 'startingPriceUsd'], 'should be a number without quotes, or empty for "Price on request"');
+    check.httpsUrl(product.liveUrl, [...path, 'liveUrl']);
+    ['highlights', 'shopFeatures', 'adminFeatures', 'included', 'tools'].forEach((key) => check.textList(product[key], [...path, key], { minItems: 0 }));
+    (product.images ?? []).forEach((image, imageIndex) => {
+      const imagePath = [...path, 'images', `#${imageIndex + 1}`];
+      check.text(image?.src, [...imagePath, 'src']);
+      check.text(image?.alt, [...imagePath, 'alt (short description for screen readers)']);
+    });
+  });
+  problems.push(...check.problems);
+  checkUniqueIds(products, 'products.json', problems);
+}
+
 function checkPricing(pricing, problems) {
   const check = createChecker('pricing.json');
   if (!Array.isArray(pricing.tiers) || pricing.tiers.length === 0) check.add(['tiers'], 'needs at least one pricing tier');
@@ -295,6 +321,7 @@ export function validateContent() {
   const services = readJson('services.json', problems);
   const projects = readJson('projects.json', problems);
   const pricing = readJson('pricing.json', problems);
+  const products = readJson('products.json', problems);
   const testimonials = readJson('testimonials.json', problems);
   const formOptions = readJson('form-options.json', problems);
 
@@ -302,6 +329,7 @@ export function validateContent() {
   if (services) checkServices(services, problems);
   if (projects) checkProjects(projects, Array.isArray(services) ? services.map((service) => service.id) : [], problems);
   if (pricing) checkPricing(pricing, problems);
+  if (products) checkProducts(products, problems);
   if (testimonials) checkTestimonials(testimonials, problems);
   if (formOptions) checkFormOptions(formOptions, problems);
   return problems;

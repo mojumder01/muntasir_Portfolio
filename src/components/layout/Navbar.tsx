@@ -8,6 +8,7 @@
 import { AnimatePresence, motion } from 'motion/react';
 import { Menu, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import { PRODUCTS_FOR_SALE } from '../../config/products';
 import { LAYOUT, SITE, type SectionKey } from '../../config/site-config';
 import { useInquiry } from '../../context/inquiry-context';
 import { useActiveSection } from '../../hooks/use-active-section';
@@ -20,10 +21,11 @@ const NAV_LINKS = [
   { sectionId: 'home', label: 'Home' },
   { sectionId: 'services', label: 'Services', section: 'services' },
   { sectionId: 'portfolio', label: 'Portfolio', section: 'portfolio' },
+  { sectionId: 'products', label: 'Products', section: 'products' },
   { sectionId: 'process', label: 'Process', section: 'process' },
   { sectionId: 'about', label: 'About', section: 'about' },
   { sectionId: 'contact', label: 'Contact', section: 'contact' },
-].filter((link) => !link.section || LAYOUT.isSectionOn(link.section as SectionKey));
+].filter((link) => !link.section || (LAYOUT.isSectionOn(link.section as SectionKey) && (link.section !== 'products' || PRODUCTS_FOR_SALE.length > 0)));
 const SECTION_IDS = NAV_LINKS.map((link) => link.sectionId);
 const SCROLLED_THRESHOLD_PX = 12; // add the navbar background after this much scroll
 

@@ -1,0 +1,64 @@
+[
+  {
+    "status": "on",
+    "priority": 1,
+    "id": "meow-bazar",
+    "name": "Meow Bazar — Online Shop System",
+    "badge": "Live & ready to launch",
+    "category": "E-commerce website + admin panel",
+    "tagline": "A complete cash-on-delivery online shop for Bangladesh: storefront, customer accounts, offers, vouchers, profit tracking and sales reports — in one system you can run from your phone.",
+    "description": "Meow Bazar is my own live cat-supply shop, and the same system can be set up for your business under your name, logo and colours. Customers browse by category, pick sizes, apply a voucher and order with cash on delivery — no account needed, or sign in to save their address and track orders. You manage everything from a private admin panel: orders, products and stock, timed sales with a countdown, voucher codes, customers, expenses, purchase prices and profit reports.",
+    "liveUrl": "https://meow-bazar.muntasir077.workers.dev",
+    "startingPriceUsd": null,
+    "priceNote": "Price depends on your products, branding and extra features — ask for a quote.",
+    "highlights": [
+      "Cash on delivery checkout with inside / outside Dhaka delivery charges and free delivery over a set amount",
+      "Customer accounts with saved address and order history (email sign-in; Google and phone OTP ready to switch on)",
+      "Timed sales with a live countdown banner, plus voucher codes with usage rules",
+      "Admin panel for orders, products, sizes, stock and photos",
+      "Profit and loss, best sellers, daily sales chart and where orders came from",
+      "Facebook Pixel and Google Analytics ready, CSV export of customers"
+    ],
+    "shopFeatures": [
+      "Home page with categories, shop-by-age and best sellers",
+      "Search, filters (category, age, on offer) and sorting",
+      "Product pages with sizes, stock left and sale price",
+      "Cart with voucher box and free-delivery progress bar",
+      "Checkout in under a minute: name, phone, area, address",
+      "Order confirmation and optional WhatsApp message",
+      "Customer account: saved details and order status",
+      "Policy pages: delivery, returns, privacy, terms",
+      "Phone-first design with a bottom navigation bar"
+    ],
+    "adminFeatures": [
+      "Orders: status flow, private notes, call / WhatsApp the customer",
+      "Products: sizes, prices, old price, stock, photos, show / hide",
+      "Sales: % off everything, a category or chosen products, with start and end time",
+      "Vouchers: % or taka off, free delivery, minimum order, limits per customer",
+      "Customers: repeat, one-time and sleeping customers, CSV download",
+      "Money: expenses by type and purchase price of every size",
+      "Reports: sales, profit, best sellers, sources, low stock",
+      "Settings: shop details, delivery charges, marketing IDs, link maker for ads"
+    ],
+    "included": [
+      "Your own copy of the shop with your name, logo and colours",
+      "Your products and categories loaded",
+      "Set up on your own hosting and database accounts (free plans to start)",
+      "Your domain connected, if you have one",
+      "Admin login for you and a handover session",
+      "Support after launch"
+    ],
+    "tools": ["React", "TypeScript", "Tailwind CSS", "Supabase (database, login, storage)", "Cloudflare Workers"],
+    "sourceNote": "The code stays private: you get a working shop set up for you, not a download of the source code.",
+    "images": [
+      { "src": "/media/meow-bazar-home.jpg", "alt": "Meow Bazar home page with a sale countdown bar, a cat illustration and the headline Everything your cat loves, delivered to your door" },
+      { "src": "/media/meow-bazar-shop.jpg", "alt": "Cat food category page with product cards showing 20% off badges and sale prices" },
+      { "src": "/media/meow-bazar-product.jpg", "alt": "Product page for adult dry food with size choice, sale price and a countdown to the end of the sale" },
+      { "src": "/media/meow-bazar-cart.jpg", "alt": "Cart with delivery details filled in for a signed-in customer and a voucher applied in the order summary" },
+      { "src": "/media/meow-bazar-account.jpg", "alt": "Customer account page with order history and saved delivery details" },
+      { "src": "/media/meow-bazar-orders.jpg", "alt": "Admin orders page with status filters and an opened order with products, totals and call and WhatsApp buttons" },
+      { "src": "/media/meow-bazar-offers.jpg", "alt": "Admin offers page with a live and a scheduled sale and a table of voucher codes" },
+      { "src": "/media/meow-bazar-reports.jpg", "alt": "Admin reports page with sales, average order, profit and customer tiles and a bar chart of sales per day" }
+    ]
+  }
+]

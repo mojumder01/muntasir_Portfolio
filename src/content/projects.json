@@ -1,6 +1,61 @@
 [
   {
     "status": "on",
+    "id": "meow-bazar",
+    "title": "Meow Bazar — Online Cat Shop (live)",
+    "serviceId": "website",
+    "summary": "My own live online shop for cat food, litter and toys: cash-on-delivery checkout, customer accounts, timed sales with a countdown, voucher codes, and an admin panel with orders, stock, expenses, profit and sales reports.",
+    "tools": [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Supabase",
+      "PostgreSQL",
+      "Cloudflare Workers"
+    ],
+    "mockup": "website",
+    "isSample": false,
+    "liveUrl": "https://meow-bazar.muntasir077.workers.dev",
+    "images": [
+      {
+        "src": "/media/meow-bazar-home.jpg",
+        "alt": "Meow Bazar home page with a sale countdown bar, a cat illustration and the headline Everything your cat loves, delivered to your door"
+      },
+      {
+        "src": "/media/meow-bazar-product.jpg",
+        "alt": "Product page for adult dry food with size choice, sale price and a countdown to the end of the sale"
+      },
+      {
+        "src": "/media/meow-bazar-cart.jpg",
+        "alt": "Cart with delivery details filled in for a signed-in customer and a voucher applied in the order summary"
+      },
+      {
+        "src": "/media/meow-bazar-orders.jpg",
+        "alt": "Admin orders page with status filters and an opened order with products, totals and call and WhatsApp buttons"
+      },
+      {
+        "src": "/media/meow-bazar-reports.jpg",
+        "alt": "Admin reports page with sales, average order, profit and customer tiles and a bar chart of sales per day"
+      }
+    ],
+    "caseStudy": {
+      "overview": "Meow Bazar is a real online shop I built and run for cat supplies in Bangladesh, with nationwide cash-on-delivery. It is a full system: a phone-first storefront for customers and a private admin panel for the owner.",
+      "problem": "Small pet shops in Bangladesh mostly sell through Facebook messages: prices are typed by hand, orders get lost in chats, stock is guessed, and nobody knows which posts or products actually bring profit.",
+      "solution": "A fast storefront where customers pick sizes, apply a voucher and order in under a minute (with or without an account), and an admin panel to run the business: order status flow, products and stock, timed sales and vouchers, customers with CSV export, expenses and purchase prices, and reports for sales, profit, best sellers and where orders came from. Prices, sale discounts, vouchers, delivery charges and stock are all calculated in the database, so nobody can change a price from the browser, and every table is protected by row-level security.",
+      "process": [
+        "Planned the shop with the owner's daily jobs in mind: take orders, confirm by phone, ship, restock, check profit",
+        "Designed a cute, colourful, phone-first look and tested it on small phones and desktop",
+        "Built the storefront in React and TypeScript with Tailwind CSS, hosted on Cloudflare Workers",
+        "Built the database on Supabase (PostgreSQL) with row-level security and an order function that works out prices, sales, vouchers, delivery and stock on the server",
+        "Added customer accounts (email; Google and phone OTP ready), saved addresses and order history",
+        "Built the admin panel: orders, products, offers, customers, money and reports, plus Facebook Pixel, Google Analytics and campaign links",
+        "Tested every rule against a local copy of the database and every page in the browser before going live"
+      ],
+      "outcome": ""
+    }
+  },
+  {
+    "status": "on",
     "id": "zorvyn-admin",
     "title": "Zorvyn Admin — E-commerce Admin Dashboard",
     "serviceId": "website",

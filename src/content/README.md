@@ -36,6 +36,7 @@ Admin panel-এ JSON-এর comma বা quote নিয়ে চিন্ত�
 | `site.json` | Site settings | নাম, পরিচয়, email, WhatsApp, social link, About লেখা, skills, **হিরো স্টাইল, সেকশন on/off, process steps, promises** |
 | `services.json` | Services | ৬টা service card |
 | `projects.json` | Projects | Portfolio + case study |
+| `products.json` | Products for sale | বিক্রির জন্য তৈরি product (যেমন Meow Bazar): ছবি, feature, দাম, live link |
 | `pricing.json` | Pricing | দাম (Starter/Professional/Custom) আর **Negotiation** অপশন |
 | `testimonials.json` | Testimonials | শুধু সত্যিকারের client review |
 | `form-options.json` | Form options | Budget আর timeline-এর পছন্দগুলো |

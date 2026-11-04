@@ -14,6 +14,7 @@ import { ContactSection } from './components/sections/ContactSection';
 import { HeroSection } from './components/sections/HeroSection';
 import { PortfolioSection } from './components/sections/PortfolioSection';
 import { PricingSection } from './components/sections/PricingSection';
+import { ProductsSection } from './components/sections/ProductsSection';
 import { ProcessSection } from './components/sections/ProcessSection';
 import { ServicesSection } from './components/sections/ServicesSection';
 import { TrustSection } from './components/sections/TrustSection';
@@ -33,6 +34,7 @@ export default function App() {
           <HeroSection />
           {LAYOUT.isSectionOn('services') && <ServicesSection />}
           {LAYOUT.isSectionOn('portfolio') && <PortfolioSection />}
+          {LAYOUT.isSectionOn('products') && <ProductsSection />}
           {LAYOUT.isSectionOn('process') && <ProcessSection />}
           {LAYOUT.isSectionOn('about') && <AboutSection />}
           {LAYOUT.isSectionOn('trust') && <TrustSection />}

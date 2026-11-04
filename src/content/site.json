@@ -19,6 +19,7 @@
     "sections": {
       "services": "on",
       "portfolio": "on",
+      "products": "on",
       "process": "on",
       "about": "on",
       "trust": "on",
