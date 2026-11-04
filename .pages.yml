@@ -75,6 +75,7 @@ content:
             fields:
               - { name: services, label: Services, type: select, default: 'on', options: { values: [{ value: 'on', label: 'On — show' }, { value: 'off', label: 'Off — hide' }] } }
               - { name: portfolio, label: Portfolio, type: select, default: 'on', options: { values: [{ value: 'on', label: 'On — show' }, { value: 'off', label: 'Off — hide' }] } }
+              - { name: products, label: Products for sale, type: select, default: 'on', options: { values: [{ value: 'on', label: 'On — show' }, { value: 'off', label: 'Off — hide' }] } }
               - { name: process, label: Process, type: select, default: 'on', options: { values: [{ value: 'on', label: 'On — show' }, { value: 'off', label: 'Off — hide' }] } }
               - { name: about, label: About, type: select, default: 'on', options: { values: [{ value: 'on', label: 'On — show' }, { value: 'off', label: 'Off — hide' }] } }
               - { name: trust, label: Reviews / What you can expect, type: select, default: 'on', options: { values: [{ value: 'on', label: 'On — show' }, { value: 'off', label: 'Off — hide' }] } }
@@ -219,6 +220,39 @@ content:
           - { name: solution, label: Solution, type: text, required: true }
           - { name: process, label: Implementation steps, type: string, list: true }
           - { name: outcome, label: Outcome, type: text, description: 'Only real, verified results — leave empty otherwise' }
+
+  # ---------- Products for sale (src/content/products.json) ----------
+  - name: products
+    label: Products for sale
+    type: file
+    path: src/content/products.json
+    format: json
+    list: true
+    fields:
+      - { name: status, label: Show on site, type: select, default: 'on', description: 'On = shown · Off = hidden but kept, switch it back on any time', options: { values: [{ value: 'on', label: 'On — show' }, { value: 'off', label: 'Off — hide' }] } }
+      - { name: priority, label: Priority (order on the site), type: number, description: '1 shows first, then 2, 3 … Empty = after the numbered ones' }
+      - { name: id, label: Id, type: string, required: true, description: 'Lowercase letters, numbers and dashes, e.g. online-shop' }
+      - { name: name, label: Name, type: string, required: true }
+      - { name: badge, label: Badge, type: string, description: 'Small label, e.g. Live & ready to launch — empty = hidden' }
+      - { name: category, label: Category line, type: string, description: 'e.g. E-commerce website + admin panel' }
+      - { name: tagline, label: Short description (on the card), type: text, required: true }
+      - { name: description, label: Long description (in the details popup), type: text }
+      - { name: liveUrl, label: Live link, type: string, description: https:// link — empty = hidden }
+      - { name: startingPriceUsd, label: Starting price (USD), type: number, description: 'Empty = "Price on request"' }
+      - { name: priceNote, label: Price note, type: string }
+      - { name: highlights, label: Highlights (on the card), type: string, list: true }
+      - { name: shopFeatures, label: Features for customers, type: string, list: true }
+      - { name: adminFeatures, label: Features for the owner (admin), type: string, list: true }
+      - { name: included, label: What the buyer gets, type: string, list: true }
+      - { name: tools, label: Built with, type: string, list: true }
+      - { name: sourceNote, label: Note about the code, type: string, description: 'e.g. The code stays private …' }
+      - name: images
+        label: Screenshots
+        type: object
+        list: true
+        fields:
+          - { name: src, label: Image, type: image }
+          - { name: alt, label: Short description (for screen readers), type: string }
 
   # ---------- Pricing (src/content/pricing.json) ----------
   - name: pricing

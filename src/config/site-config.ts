@@ -15,7 +15,7 @@ import contentRules from './content-rules.json';
 type SocialId = 'github' | 'linkedin' | 'fiverr' | 'upwork';
 
 /** Sections that can be switched on/off in the admin (Site settings → Layout). */
-export type SectionKey = 'services' | 'portfolio' | 'process' | 'about' | 'trust' | 'pricing' | 'contact';
+export type SectionKey = 'services' | 'portfolio' | 'products' | 'process' | 'about' | 'trust' | 'pricing' | 'contact';
 export type HeroStyle = 'classic' | 'simple' | 'modern' | 'premium' | 'unique';
 
 interface RawListItem {

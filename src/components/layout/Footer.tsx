@@ -3,6 +3,7 @@
 // Brand line, quick links, profile links and copyright year.
 // =============================================================
 
+import { PRODUCTS_FOR_SALE } from '../../config/products';
 import { LAYOUT, SITE } from '../../config/site-config';
 import { getActiveSocialLinks } from '../../lib/contact-channels';
 
@@ -11,10 +12,11 @@ const FOOTER_LINKS = (
   [
     { href: '#services', label: 'Services', section: 'services' },
     { href: '#portfolio', label: 'Portfolio', section: 'portfolio' },
+    { href: '#products', label: 'Products', section: 'products' },
     { href: '#pricing', label: 'Pricing', section: 'pricing' },
     { href: '#contact', label: 'Contact', section: 'contact' },
   ] as const
-).filter((link) => LAYOUT.isSectionOn(link.section));
+).filter((link) => LAYOUT.isSectionOn(link.section) && (link.section !== 'products' || PRODUCTS_FOR_SALE.length > 0));
 
 export function Footer() {
   const socialLinks = getActiveSocialLinks();
